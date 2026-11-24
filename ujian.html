@@ -1,290 +1,2708 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ren Marketing — Smart Digital Marketing Agency</title>
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
 
-<title>ST Bhinneka Tech Fest 2026</title>
+  <style>
+    /* ==========================================================================
+       1. DESIGN TOKENS & BASE RESET
+       ========================================================================== */
+    :root {
+      --bg-main: #070908;
+      --bg-elevated: #0e1311;
+      --surface: rgba(16, 23, 20, 0.74);
+      --surface-hover: rgba(24, 34, 30, 0.94);
+      --border: rgba(134, 239, 172, 0.16);
+      --border-strong: rgba(134, 239, 172, 0.42);
+      --text-primary: #ffffff;
+      --text-secondary: #a3b0a9;
+      --pastel-green: #86efac;
+      --pastel-green-strong: #4ade80;
+      --blue-accent: #60a5fa;
+      --danger: #f87171;
+      --warning: #fbbf24;
+      --gradient-brand: linear-gradient(135deg, #86efac 0%, #60a5fa 100%);
+      --radius: 20px;
+      --radius-sm: 12px;
+      --shadow-glow: 0 0 36px rgba(134, 239, 172, 0.14);
+      --transition: 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    }
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<style>
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+      background: var(--bg-main);
+      color: var(--text-primary);
+    }
 
-body{
-    background: linear-gradient(135deg,#4f46e5,#7c3aed,#06b6d4);
-    min-height:100vh;
-}
+    body {
+      background: var(--bg-main);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-.card{
-    border-radius: (165, 104, 194);
-    border-radius:20px;
-}
+    .hidden { display: none !important; }
 
-.card-header{
-    background:linear-gradient(90deg,#4f46e5,#7c3aed);
-    color :rgb(248, 252, 252);
-    border-radius:20px 20px 0 0 !important;
-}
+    .container {
+      width: min(1220px, 92vw);
+      margin-inline: auto;
+    }
 
-.form-control,
-.form-select{
-    border-radius:12px;
-}
+    .section {
+      padding: 88px 0;
+      position: relative;
+    }
 
-.form-control:focus,
-.form-select:focus{
-    box-shadow:0 0 8px rgba(79,70,229,.4);
-    border-color:#4f46e5;
-}
+    .sub-section { margin-top: 60px; }
 
-.btn-submit{
-    background:linear-gradient(90deg,#4f46e5,#7c3aed);
-    color:rgb(245, 239, 245);
-    border:none;
-    border-radius:12px;
-    font-size:18px;
-    transition:.3s;
-}
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--pastel-green);
+      margin-bottom: 10px;
+    }
 
-.btn-submit:hover{
-    transform:scale(1.03);
-    background:linear-gradient(90deg,#4338ca,#6d28d9);
-}
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text-primary);
+    }
 
-</style>
+    h1 { font-size: clamp(2.15rem, 4.3vw, 3.45rem); letter-spacing: -0.028em; }
+    h2 { font-size: clamp(1.65rem, 3.1vw, 2.4rem); letter-spacing: -0.02em; }
+    p, .muted { color: var(--text-secondary); }
+    .small-text { font-size: 0.85rem; }
 
+    /* Glassmorphism Surface */
+    .glass {
+      background: var(--surface);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: transform var(--transition), border-color var(--transition), background var(--transition), box-shadow var(--transition);
+    }
+
+    .glass:hover {
+      border-color: var(--border-strong);
+      background: var(--surface-hover);
+      box-shadow: var(--shadow-glow);
+    }
+
+    /* Buttons & Interactive Controls */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 12px 22px;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.92rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all var(--transition);
+    }
+
+    .btn-sm { padding: 8px 14px; font-size: 0.82rem; }
+    .btn-xs { padding: 5px 11px; font-size: 0.76rem; }
+
+    .btn-primary { background: var(--pastel-green); color: #07110c; }
+    .btn-primary:hover {
+      background: var(--pastel-green-strong);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 26px rgba(134, 239, 172, 0.3);
+    }
+
+    .btn-secondary {
+      background: rgba(96, 165, 250, 0.14);
+      color: var(--text-primary);
+      border-color: rgba(96, 165, 250, 0.35);
+    }
+    .btn-secondary:hover { background: rgba(96, 165, 250, 0.25); transform: translateY(-2px); }
+
+    .btn-outline { background: transparent; color: var(--pastel-green); border-color: rgba(134, 239, 172, 0.45); }
+    .btn-outline:hover { background: rgba(134, 239, 172, 0.12); }
+
+    .btn-ghost { background: transparent; color: var(--text-secondary); }
+    .btn-ghost:hover { color: var(--text-primary); background: rgba(255, 255, 255, 0.06); }
+
+    .btn-danger { background: rgba(248, 113, 113, 0.16); color: var(--danger); border-color: rgba(248, 113, 113, 0.35); }
+    .btn-danger:hover { background: rgba(248, 113, 113, 0.28); }
+
+    .link-btn {
+      background: none;
+      border: none;
+      color: var(--pastel-green);
+      cursor: pointer;
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
+    .icon-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .icon-btn:hover { border-color: var(--pastel-green); }
+
+    .badge {
+      background: var(--gradient-brand);
+      color: #07110c;
+      font-weight: 800;
+      font-size: 0.7rem;
+      padding: 1px 6px;
+      border-radius: 999px;
+    }
+
+    /* ==========================================================================
+       2. LOADING SCREEN & STICKY NAVBAR
+       ========================================================================== */
+    .preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: var(--bg-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+    .preloader.done { opacity: 0; visibility: hidden; pointer-events: none; }
+
+    .loader-ring {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 3px solid rgba(134, 239, 172, 0.2);
+      border-top-color: var(--pastel-green);
+      animation: spin 0.85s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background: rgba(7, 9, 8, 0.82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      transition: box-shadow var(--transition), background var(--transition);
+    }
+    .navbar.scrolled { background: rgba(7, 9, 8, 0.96); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 74px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-primary);
+      font-weight: 800;
+      font-size: 1.04rem;
+      flex-shrink: 0;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: var(--gradient-brand);
+      color: #07110c;
+      font-weight: 800;
+    }
+
+    .nav-links { display: flex; align-items: center; gap: 15px; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: color var(--transition);
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--pastel-green); }
+
+    .nav-actions, .auth-group { display: flex; align-items: center; gap: 7px; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+    }
+    .hamburger span { width: 24px; height: 2px; background: var(--text-primary); border-radius: 2px; }
+
+    .floating-panel {
+      position: fixed;
+      top: 82px;
+      right: 4vw;
+      width: min(360px, 92vw);
+      z-index: 950;
+      padding: 16px;
+      background: #101614;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
+    }
+
+    .panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .notif-list { list-style: none; display: grid; gap: 8px; font-size: 0.84rem; max-height: 280px; overflow-y: auto; }
+    .notif-list li { padding: 10px; border-radius: 10px; background: rgba(255, 255, 255, 0.04); color: var(--text-secondary); }
+
+    /* ==========================================================================
+       3. HERO SECTION & AMBIENT GLOWS
+       ========================================================================== */
+    .glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(115px);
+      pointer-events: none;
+      z-index: -1;
+    }
+    .glow-green { width: 380px; height: 380px; top: 20px; left: -90px; background: rgba(134, 239, 172, 0.16); }
+    .glow-blue { width: 420px; height: 420px; top: 80px; right: -110px; background: rgba(96, 165, 250, 0.17); }
+
+    .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 36px; align-items: center; }
+    .hero-sub { margin: 18px 0 26px; font-size: 1.04rem; }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 34px; }
+
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .stat-card { padding: 16px 12px; text-align: center; }
+    .stat-value {
+      display: block;
+      font-size: 1.55rem;
+      font-weight: 800;
+      background: var(--gradient-brand);
+      -webkit-text-fill-color: transparent;
+    }
+    .stat-card span { font-size: 0.8rem; color: var(--text-secondary); }
+
+    .hero-visual { padding: 24px; }
+    .dash-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+    .dash-tag { font-size: 0.75rem; color: var(--blue-accent); font-weight: 600; }
+
+    .pill-green {
+      background: rgba(134, 239, 172, 0.15);
+      color: var(--pastel-green);
+      border: 1px solid rgba(134, 239, 172, 0.35);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .growth-chart { width: 100%; height: auto; margin: 8px 0 14px; }
+    .grid-line { stroke: rgba(255, 255, 255, 0.08); stroke-dasharray: 4 4; }
+
+    .dash-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .metric-box { background: rgba(255, 255, 255, 0.04); border-radius: var(--radius-sm); padding: 12px; }
+    .metric-box small { display: block; color: var(--text-secondary); font-size: 0.73rem; }
+    .metric-box strong { font-size: 1rem; color: var(--pastel-green); }
+
+    .home-extras { margin-top: 44px; display: grid; gap: 20px; }
+    .advantages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .info-card, .card { padding: 24px; }
+    .info-card h4 { margin-bottom: 8px; color: var(--pastel-green); }
+
+    .client-strip {
+      padding: 18px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .client-logos { display: flex; flex-wrap: wrap; gap: 22px; align-items: center; }
+    .client-logo { font-weight: 700; color: rgba(255, 255, 255, 0.74); letter-spacing: 0.02em; }
+
+    /* ==========================================================================
+       4. SHARED HEADERS, FILTERS, INPUTS & CARDS
+       ========================================================================== */
+    .section-header { max-width: 690px; margin-bottom: 32px; }
+    .section-header p { margin-top: 10px; }
+    .sub-heading { margin-bottom: 20px; font-size: 1.35rem; }
+
+    .about-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .about-grid h3 { margin-bottom: 10px; }
+    .clean-list { padding-left: 18px; color: var(--text-secondary); display: grid; gap: 6px; }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+
+    .filter-group { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .toolbar .filter-group { margin-bottom: 0; }
+
+    .chip {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .chip:hover, .chip.active {
+      background: var(--pastel-green);
+      color: #07110c;
+      border-color: var(--pastel-green);
+    }
+
+    .input, select.input, textarea.input {
+      width: 100%;
+      background: rgba(15, 21, 18, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius-sm);
+      padding: 11px 14px;
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 0.9rem;
+      transition: border-color var(--transition);
+    }
+    .input:focus { outline: none; border-color: var(--pastel-green); }
+    .search-input { max-width: 310px; }
+
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(268px, 1fr)); gap: 18px; }
+    .service-card { padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 14px; }
+
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 0.82rem;
+      background: rgba(134, 239, 172, 0.14);
+      color: var(--pastel-green);
+      border: 1px solid rgba(134, 239, 172, 0.3);
+    }
+
+    .service-benefit { font-size: 0.83rem; color: var(--blue-accent); font-weight: 500; }
+    .card-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    .portfolio-grid, .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+    .media-card { overflow: hidden; display: flex; flex-direction: column; }
+
+    .media-banner {
+      height: 165px;
+      padding: 18px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      background: linear-gradient(135deg, rgba(134, 239, 172, 0.22), rgba(96, 165, 250, 0.25));
+      border-bottom: 1px solid var(--border);
+    }
+
+    .media-body { padding: 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .kpi-tag { font-weight: 700; color: var(--pastel-green); font-size: 0.9rem; }
+
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .pricing-card { padding: 28px; display: flex; flex-direction: column; justify-content: space-between; gap: 18px; position: relative; }
+    .pricing-card.popular { border-color: var(--pastel-green); box-shadow: 0 0 40px rgba(134, 239, 172, 0.18); }
+
+    .popular-badge {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: var(--gradient-brand);
+      color: #07110c;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+
+    .price-amount { font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin: 8px 0; }
+
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; }
+    .team-card { padding: 22px; text-align: center; }
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      margin: 0 auto 12px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 1.15rem;
+      background: var(--gradient-brand);
+      color: #07110c;
+    }
+
+    /* ==========================================================================
+       5. RATING & REVIEW SYSTEM
+       ========================================================================== */
+    .reviews-layout { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 22px; margin-bottom: 26px; }
+    .rating-summary { padding: 24px; }
+    .rating-score-box { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+    .avg-score { font-size: 3rem; font-weight: 800; color: var(--pastel-green); line-height: 1; }
+    .stars-display { color: var(--pastel-green); font-size: 1.2rem; letter-spacing: 2px; }
+
+    .rating-bars { display: grid; gap: 8px; }
+    .bar-row { display: grid; grid-template-columns: 48px 1fr 34px; align-items: center; gap: 10px; font-size: 0.82rem; }
+    .bar-track { height: 8px; border-radius: 999px; background: rgba(255, 255, 255, 0.08); overflow: hidden; }
+    .bar-fill { height: 100%; background: var(--gradient-brand); border-radius: 999px; }
+
+    .star-picker { display: flex; gap: 6px; }
+    .star-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: var(--text-secondary);
+      font-size: 1.35rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .star-btn.active { background: rgba(134, 239, 172, 0.16); border-color: var(--pastel-green); color: var(--pastel-green); }
+
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 18px; }
+    .review-card { padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+    .review-head { display: flex; align-items: center; gap: 12px; }
+    .mini-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      background: rgba(96, 165, 250, 0.2);
+      color: var(--blue-accent);
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================================
+       6. FORMS, FAQ, CONTACT & FOOTER
+       ========================================================================== */
+    .form-card, .faq-card, .contact-info { padding: 26px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .field { margin-bottom: 14px; }
+    .field label { display: block; font-size: 0.84rem; font-weight: 600; margin-bottom: 6px; color: var(--text-primary); }
+    .form-feedback { margin-top: 10px; font-size: 0.86rem; color: var(--pastel-green); min-height: 20px; }
+
+    .consult-faq-grid, .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .faq-list { display: grid; gap: 10px; }
+    .faq-item { border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-sm); overflow: hidden; background: rgba(255, 255, 255, 0.03); }
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      padding: 14px 16px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-a { padding: 0 16px 14px; font-size: 0.88rem; color: var(--text-secondary); }
+
+    .contact-details { list-style: none; display: grid; gap: 10px; margin: 18px 0; font-size: 0.92rem; color: var(--text-secondary); }
+    .social-links { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .footer { border-top: 1px solid rgba(255, 255, 255, 0.08); background: var(--bg-elevated); padding-top: 52px; }
+    .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.3fr; gap: 28px; padding-bottom: 36px; }
+    .footer h4 { margin-bottom: 12px; font-size: 0.96rem; }
+    .footer-links { list-style: none; display: grid; gap: 8px; }
+    .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.88rem; }
+    .footer-links a:hover { color: var(--pastel-green); }
+    .newsletter-form { display: flex; gap: 8px; margin-top: 10px; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 18px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+    }
+
+    .wa-float {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      z-index: 850;
+      background: var(--pastel-green);
+      color: #07110c;
+      font-weight: 800;
+      font-size: 0.86rem;
+      padding: 12px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 10px 28px rgba(134, 239, 172, 0.35);
+      transition: transform var(--transition);
+    }
+    .wa-float:hover { transform: translateY(-3px); }
+
+    /* ==========================================================================
+       7. MODALS & DASHBOARDS (CUSTOMER + ADMIN CRUD)
+       ========================================================================== */
+    .modal { position: fixed; inset: 0; z-index: 1200; display: grid; place-items: center; padding: 16px; }
+    .modal-backdrop { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.76); backdrop-filter: blur(6px); }
+    .modal-card {
+      position: relative;
+      z-index: 2;
+      width: min(580px, 95vw);
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 28px;
+      background: #0d1311;
+    }
+    .modal-wide { width: min(1060px, 96vw); }
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      color: var(--text-primary);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .tab-bar { display: flex; gap: 8px; margin: 14px 0; flex-wrap: wrap; }
+    .tab-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      padding: 7px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    .tab-btn.active { background: var(--pastel-green); color: #07110c; }
+
+    .dash-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 16px 0; }
+    .dash-box { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius-sm); padding: 16px; }
+    .dash-box strong { display: block; font-size: 1.15rem; margin-top: 4px; color: var(--pastel-green); }
+
+    .progress-bar { height: 9px; border-radius: 999px; background: rgba(255, 255, 255, 0.1); overflow: hidden; margin-top: 8px; }
+    .progress-fill { height: 100%; background: var(--gradient-brand); }
+
+    .crud-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .chart-bars {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      align-items: end;
+      height: 150px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: var(--radius-sm);
+      margin: 14px 0;
+    }
+    .chart-col { display: flex; flex-direction: column; align-items: center; gap: 6px; height: 100%; justify-content: flex-end; }
+    .chart-bar-fill { width: 100%; max-width: 38px; border-radius: 8px 8px 0 0; background: var(--gradient-brand); min-height: 12px; }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 1060px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 74px;
+        left: 0;
+        right: 0;
+        background: #0b0f0d;
+        border-bottom: 1px solid var(--border);
+        padding: 18px 4vw;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid, .about-grid, .pricing-grid, .reviews-layout, .consult-faq-grid, .contact-grid, .footer-top {
+        grid-template-columns: 1fr;
+      }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 560px) {
+      .form-row, .dash-metrics, .advantages-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-
 <body>
-
-<div class="container py-5">
-
-<div class="card shadow-lg">
-
-<div class="card-header text-center py-4">
-
-<h2><i class="bi bi-cpu-fill"></i> ST Bhinneka Tech Fest 2026</h2>
-
-<p class="mb-0">
-Daftarkan dirimu dan jadilah bagian dari inovasi teknologi!
-</p>
-
-</div>
-
-<div class="card-body p-4">
-
-<form onsubmit="return sukses()">
-
-<div class="row">
-
-<div class="col-md-6 mb-3">
-<label class="form-label">
-<i class="bi bi-person-fill"></i>
-Nama Lengkap
-</label>
-
-<input
-type="text"
-class="form-control"
-required>
-</div>
-
-<div class="col-md-6 mb-3">
-
-<label class="form-label">
-<i class="bi bi-whatsapp"></i>
-No. WhatsApp
-</label>
-
-<input
-type="tel"
-class="form-control"
-required>
-
-</div>
-
-<div class="col-md-6 mb-3">
-
-<label class="form-label">
-<i class="bi bi-envelope-fill"></i>
-Email
-</label>
-
-<input
-type="email"
-class="form-control"
-required>
-
-</div>
-
-<div class="col-md-6 mb-3">
-
-<label class="form-label">
-<i class="bi bi-building"></i>
-Asal Kampus / Sekolah
-</label>
-
-<input
-type="text"
-class="form-control"
-required>
-
-</div>
-
-<div class="col-md-6 mb-3">
-
-<label class="form-label">
-<i class="bi bi-calendar-event-fill"></i>
-Pilihan Event
-</label>
-
-<select class="form-select" required>
-
-<option value="">Pilih Event</option>
-
-<option>UI/UX Design Battle</option>
-
-<option>Web Design Challenge</option>
-
-<option>Digital Business Pitching</option>
-
-<option>AI Content Competition</option>
-
-</select>
-
-</div>
-
-<div class="col-md-6 mb-3">
-
-<label class="form-label">
-<i class="bi bi-people-fill"></i>
-Kategori Peserta
-</label>
-
-<select class="form-select" required>
-
-<option value="">Kategori</option>
-
-<option>Mahasiswa</option>
-
-<option>Pelajar</option>
-
-<option>Umum</option>
-
-</select>
-
-</div>
-
-<div class="col-md-6 mb-3">
-
-<label class="form-label">
-<i class="bi bi-calendar-date-fill"></i>
-Tanggal Kehadiran
-</label>
-
-<input
-type="date"
-class="form-control"
-required>
-
-</div>
-
-<div class="col-md-6 mb-3">
-
-<label class="form-label">
-<i class="bi bi-card-image"></i>
-Upload Kartu Pelajar/Mahasiswa
-</label>
-
-<input
-type="file"
-class="form-control"
-required>
-
-</div>
-
-<div class="col-12 mb-3">
-
-<label class="form-label">
-<i class="bi bi-chat-left-text-fill"></i>
-Alasan Mengikuti Event
-</label>
-
-<textarea
-rows="4"
-class="form-control"
-required></textarea>
-
-</div>
-
-<div class="d-grid mt-4">
-
-<button class="btn btn-submit btn-lg">
-
-<i class="bi bi-send-fill"></i>
-
-Submit Pendaftaran
-
-</button>
-
-</div>
-
-</div>
-
-</form>
-
-</div>
-
-</div>
-
-</div>
-
-<script>
-
-function sukses(){
-
-document.body.innerHTML=`
-
-<div class="container d-flex justify-content-center align-items-center vh-100">
-
-<div class="card shadow-lg p-5 text-center" style="max-width:600px;border-radius:20px;">
-
-<h1 class="text-success">
-
-<i class="bi bi-check-circle-fill"></i>
-
-</h1>
-
-<h2 class="mt-3">
-
-Terima Kasih!
-
-</h2>
-
-<p class="fs-4">
-
-Pendaftaran <b>Campus Tech Fest 2026</b> berhasil dikirim.
-
-</p>
-
-<a href="" class="btn btn-primary mt-3">
-
-Daftar Lagi
-
-</a>
-
-</div>
-
-</div>
-
-`;
-
-return false;
-
-}
-
-</script>
-
+  <!-- Loading Screen -->
+  <div id="preloader" class="preloader" aria-hidden="true">
+    <div class="loader-ring"></div>
+    <span>Ren Marketing</span>
+  </div>
+
+  <!-- Sticky Navbar -->
+  <header id="navbar" class="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="brand">
+        <span class="brand-mark">RM</span>
+        <span class="brand-name">Ren Marketing</span>
+      </a>
+
+      <nav id="navMenu" class="nav-links" aria-label="Navigasi Utama">
+        <a href="#home">Beranda</a>
+        <a href="#about">Tentang Kami</a>
+        <a href="#services">Layanan</a>
+        <a href="#portfolio">Portofolio</a>
+        <a href="#pricing">Harga Paket</a>
+        <a href="#reviews">Testimoni</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Kontak</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="globalSearchBtn" class="icon-btn" title="Pencarian Cepat" aria-label="Buka pencarian cepat">
+          <span>Cari</span>
+        </button>
+        <button id="cartBtn" class="icon-btn" title="Daftar Layanan Dipilih" aria-label="Buka keranjang layanan">
+          <span>Keranjang</span>
+          <span id="cartCount" class="badge">0</span>
+        </button>
+        <button id="notifBtn" class="icon-btn" title="Notifikasi" aria-label="Buka notifikasi">
+          <span>Notif</span>
+          <span id="notifCount" class="badge">2</span>
+        </button>
+        <div id="authGuestActions" class="auth-group">
+          <button class="btn btn-ghost btn-sm" data-open-modal="authModal" data-auth-tab="login">Login</button>
+          <button class="btn btn-outline btn-sm" data-open-modal="authModal" data-auth-tab="register">Daftar</button>
+        </div>
+        <div id="authUserActions" class="auth-group hidden">
+          <button id="openDashboardBtn" class="btn btn-outline btn-sm">Dashboard</button>
+          <button id="logoutBtn" class="btn btn-ghost btn-sm">Logout</button>
+        </div>
+        <a href="#consultation" class="btn btn-primary btn-sm">Konsultasi Gratis</a>
+        <button id="hamburgerBtn" class="hamburger" aria-label="Buka menu navigasi" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Notification Panel -->
+  <aside id="notifPanel" class="glass-panel floating-panel hidden" aria-label="Notifikasi">
+    <div class="panel-header">
+      <h4>Notifikasi</h4>
+      <button id="clearNotifBtn" class="link-btn">Tandai dibaca</button>
+    </div>
+    <ul id="notifList" class="notif-list"></ul>
+  </aside>
+
+  <main>
+    <!-- 3. BERANDA / HERO SECTION -->
+    <section id="home" class="hero section">
+      <div class="glow glow-green"></div>
+      <div class="glow glow-blue"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">Performance • Branding • Growth</span>
+          <h1>Grow Your Business with Smart Digital Marketing</h1>
+          <p class="hero-sub">
+            Ren Marketing membantu bisnis berkembang secara terukur melalui strategi pemasaran digital yang tepat sasaran—meningkatkan brand awareness, menjangkau pelanggan potensial, melipatgandakan traffic, dan mendorong penjualan.
+          </p>
+          <div class="hero-cta">
+            <a href="#pricing" class="btn btn-primary">Mulai Sekarang</a>
+            <a href="#services" class="btn btn-secondary">Lihat Layanan</a>
+          </div>
+
+          <div class="stats-grid" id="heroStats">
+            <div class="stat-card glass">
+              <strong class="stat-value" data-target="150" data-suffix="+">0</strong>
+              <span>Klien</span>
+            </div>
+            <div class="stat-card glass">
+              <strong class="stat-value" data-target="250" data-suffix="+">0</strong>
+              <span>Proyek Selesai</span>
+            </div>
+            <div class="stat-card glass">
+              <strong class="stat-value" data-target="95" data-suffix="%">0</strong>
+              <span>Kepuasan Klien</span>
+            </div>
+            <div class="stat-card glass">
+              <strong class="stat-value" data-target="5" data-suffix="+">0</strong>
+              <span>Tahun Pengalaman</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ilustrasi Dashboard Analitik & Grafik Pertumbuhan -->
+        <div class="hero-visual glass reveal">
+          <div class="dash-top">
+            <div>
+              <span class="dash-tag">Live Campaign Analytics</span>
+              <h3>Pertumbuhan Traffic & ROAS</h3>
+            </div>
+            <span class="pill-green">+184% YoY</span>
+          </div>
+          <svg class="growth-chart" viewBox="0 0 420 190" role="img" aria-label="Grafik pertumbuhan traffic dan konversi">
+            <defs>
+              <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#86efac" stop-opacity="0.45" />
+                <stop offset="55%" stop-color="#60a5fa" stop-opacity="0.16" />
+                <stop offset="100%" stop-color="#86efac" stop-opacity="0" />
+              </linearGradient>
+              <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#86efac" />
+                <stop offset="100%" stop-color="#60a5fa" />
+              </linearGradient>
+            </defs>
+            <line x1="20" y1="40" x2="400" y2="40" class="grid-line" />
+            <line x1="20" y1="90" x2="400" y2="90" class="grid-line" />
+            <line x1="20" y1="140" x2="400" y2="140" class="grid-line" />
+            <path d="M20,155 L85,132 L150,118 L215,84 L280,68 L345,38 L400,22 L400,170 L20,170 Z" fill="url(#areaGrad)" />
+            <polyline fill="none" stroke="url(#lineGrad)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"
+              points="20,155 85,132 150,118 215,84 280,68 345,38 400,22" />
+            <circle cx="400" cy="22" r="6" fill="#86efac" />
+          </svg>
+          <div class="dash-metrics">
+            <div class="metric-box">
+              <small>Organic & Paid Traffic</small>
+              <strong>412.8K / bln</strong>
+            </div>
+            <div class="metric-box">
+              <small>Rata-rata ROAS</small>
+              <strong>4.8x</strong>
+            </div>
+            <div class="metric-box">
+              <small>Conversion Rate</small>
+              <strong>6.4%</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container home-extras reveal">
+        <div class="advantages-grid">
+          <div class="glass info-card">
+            <h4>Strategi Berbasis Data</h4>
+            <p>Setiap kampanye disusun dari riset audiens, analisis kompetitor, dan pelacakan konversi yang akurat.</p>
+          </div>
+          <div class="glass info-card">
+            <h4>Tim Spesialis Terpadu</h4>
+            <p>Kolaborasi analis SEO, media buyer, kreatif visual, dan developer dalam satu alur kerja transparan.</p>
+          </div>
+          <div class="glass info-card">
+            <h4>Laporan Real-Time & Jelas</h4>
+            <p>Fokus pada metrik bisnis nyata—leads, traffic berkualitas, dan pertumbuhan pendapatan—bukan sekadar vanity metrics.</p>
+          </div>
+        </div>
+
+        <div class="client-strip glass">
+          <span class="muted">Dipercaya berbagai brand & perusahaan:</span>
+          <div class="client-logos">
+            <span class="client-logo">NusantaraPay</span>
+            <span class="client-logo">KopiRimba</span>
+            <span class="client-logo">VeloceHome</span>
+            <span class="client-logo">MedikaCare</span>
+            <span class="client-logo">LokaRetail</span>
+            <span class="client-logo">ArthaCloud</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 & 9. TENTANG KAMI & TIM -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">Tentang Ren Marketing</span>
+          <h2>Mitra Pertumbuhan Digital yang Terstruktur & Transparan</h2>
+          <p>Kami memadukan kreativitas visual, optimasi teknis, dan manajemen iklan berkinerja tinggi untuk skala bisnis jangka panjang.</p>
+        </div>
+
+        <div class="about-grid reveal">
+          <div class="glass card">
+            <h3>Profil & Tujuan Perusahaan</h3>
+            <p>Berdiri sejak 2021, Ren Marketing membantu startup, UKM, hingga perusahaan enterprise membangun kehadiran digital yang kuat, meningkatkan akuisisi pelanggan, dan menghasilkan pendapatan berkelanjutan.</p>
+          </div>
+          <div class="glass card">
+            <h3>Visi & Misi</h3>
+            <p><strong>Visi:</strong> Menjadi agensi pemasaran digital pilihan utama yang mendorong pertumbuhan bisnis beretika dan terukur.</p>
+            <p style="margin-top:8px;"><strong>Misi:</strong> Menghadirkan kampanye omnichannel, aset kreatif berkualitas tinggi, serta pelaporan kinerja yang jujur dan dapat ditindaklanjuti.</p>
+          </div>
+          <div class="glass card">
+            <h3>Keunggulan & Perkembangan</h3>
+            <ul class="clean-list">
+              <li>Audit menyeluruh sebelum eksekusi kampanye</li>
+              <li>Pertumbuhan retensi klien +88% setiap tahun</li>
+              <li>Dashboard laporan & progres proyek real-time</li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="team" class="sub-section reveal">
+          <h3 class="sub-heading">Tim Profesional Kami</h3>
+          <div id="teamGrid" class="team-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. LAYANAN (12 LAYANAN) -->
+    <section id="services" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">Layanan Kami</span>
+          <h2>Solusi Pemasaran Digital End-to-End</h2>
+          <p>Pilih layanan spesifik sesuai kebutuhan bisnis Anda atau tambahkan langsung ke keranjang pemesanan.</p>
+        </div>
+
+        <div class="toolbar reveal">
+          <div id="serviceFilters" class="filter-group" role="group" aria-label="Filter kategori layanan">
+            <button class="chip active" data-filter="all">Semua Layanan</button>
+            <button class="chip" data-filter="Search & Ads">Search & Ads</button>
+            <button class="chip" data-filter="Social & Content">Social & Content</button>
+            <button class="chip" data-filter="Web & Brand">Web & Brand</button>
+          </div>
+          <input id="serviceSearch" type="search" class="input search-input" placeholder="Cari layanan (mis. SEO, Meta Ads, Website)..." aria-label="Cari layanan" />
+        </div>
+
+        <div id="servicesGrid" class="services-grid"></div>
+      </div>
+    </section>
+
+    <!-- 6. PORTOFOLIO -->
+    <section id="portfolio" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">Portofolio Proyek</span>
+          <h2>Studi Kasus & Dampak Nyata Klien</h2>
+          <p>Telusuri proyek yang telah kami kerjakan lengkap dengan strategi dan peningkatan performa.</p>
+        </div>
+
+        <div id="portfolioFilters" class="filter-group reveal" role="group" aria-label="Filter portofolio">
+          <button class="chip active" data-portfolio-filter="all">Semua Proyek</button>
+          <button class="chip" data-portfolio-filter="SEO & SEM">SEO & SEM</button>
+          <button class="chip" data-portfolio-filter="Paid Ads & Social">Paid Ads & Social</button>
+          <button class="chip" data-portfolio-filter="Web & Branding">Web & Branding</button>
+        </div>
+
+        <div id="portfolioGrid" class="portfolio-grid"></div>
+      </div>
+    </section>
+
+    <!-- 8. HARGA PAKET -->
+    <section id="pricing" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">Harga Paket</span>
+          <h2>Paket Transparan untuk Setiap Tahap Bisnis</h2>
+          <p>Mulai dari bisnis pemula hingga skala perusahaan dengan dukungan tim dedicated.</p>
+        </div>
+
+        <div id="pricingGrid" class="pricing-grid"></div>
+      </div>
+    </section>
+
+    <!-- 7. RATING DAN REVIEW -->
+    <section id="reviews" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">Rating & Ulasan Klien</span>
+          <h2>Penilaian & Testimoni Klien</h2>
+          <p>Ulasan pelanggan divalidasi sebelum dipublikasikan. Kirim ulasan Anda melalui formulir di bawah ini.</p>
+        </div>
+
+        <div class="reviews-layout reveal">
+          <div class="glass rating-summary">
+            <div class="rating-score-box">
+              <div id="avgRatingValue" class="avg-score">0.0</div>
+              <div>
+                <div id="avgRatingStars" class="stars-display" aria-hidden="true"></div>
+                <p id="totalReviewsText" class="muted">0 ulasan terpublikasi</p>
+              </div>
+            </div>
+            <div id="ratingBreakdown" class="rating-bars"></div>
+          </div>
+
+          <form id="reviewForm" class="glass form-card" novalidate>
+            <h3>Tulis Ulasan Anda</h3>
+            <p class="muted small-text">Ulasan akan masuk antrean moderasi/validasi admin sebelum tampil di daftar publik.</p>
+            <div class="form-row">
+              <div class="field">
+                <label for="revName">Nama *</label>
+                <input id="revName" type="text" class="input" placeholder="Nama lengkap Anda" required />
+              </div>
+              <div class="field">
+                <label for="revEmail">Email *</label>
+                <input id="revEmail" type="email" class="input" placeholder="nama@perusahaan.com" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="revCompany">Nama Perusahaan *</label>
+                <input id="revCompany" type="text" class="input" placeholder="PT / Brand Anda" required />
+              </div>
+              <div class="field">
+                <label>Rating Bintang (1–5) *</label>
+                <div id="starPicker" class="star-picker" role="radiogroup" aria-label="Pilih rating 1 sampai 5">
+                  <button type="button" class="star-btn" data-value="1" aria-label="1 bintang">★</button>
+                  <button type="button" class="star-btn" data-value="2" aria-label="2 bintang">★</button>
+                  <button type="button" class="star-btn" data-value="3" aria-label="3 bintang">★</button>
+                  <button type="button" class="star-btn" data-value="4" aria-label="4 bintang">★</button>
+                  <button type="button" class="star-btn" data-value="5" aria-label="5 bintang">★</button>
+                </div>
+                <input type="hidden" id="revRating" value="" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="revComment">Komentar / Testimoni *</label>
+              <textarea id="revComment" rows="3" class="input" placeholder="Ceritakan pengalaman kerja sama Anda dengan Ren Marketing..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Kirim Review</button>
+            <p id="revFeedback" class="form-feedback" role="status"></p>
+          </form>
+        </div>
+
+        <div id="approvedReviewsList" class="reviews-grid reveal"></div>
+      </div>
+    </section>
+
+    <!-- 10. BLOG & ARTIKEL -->
+    <section id="blog" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">Blog & Insight</span>
+          <h2>Artikel Strategi Digital Marketing</h2>
+          <p>Panduan praktis seputar SEO, Google Ads, social media, branding, dan pertumbuhan bisnis digital.</p>
+        </div>
+
+        <div class="toolbar reveal">
+          <div id="blogCategories" class="filter-group">
+            <button class="chip active" data-blog-cat="all">Semua</button>
+            <button class="chip" data-blog-cat="SEO">SEO</button>
+            <button class="chip" data-blog-cat="Google Ads">Google Ads</button>
+            <button class="chip" data-blog-cat="Social Media">Social Media</button>
+            <button class="chip" data-blog-cat="Branding">Branding</button>
+          </div>
+          <input id="blogSearch" type="search" class="input search-input" placeholder="Cari judul atau topik artikel..." aria-label="Cari artikel" />
+        </div>
+
+        <div id="blogGrid" class="blog-grid"></div>
+      </div>
+    </section>
+
+    <!-- 15. KALENDER BOOKING KONSULTASI & FAQ -->
+    <section id="consultation" class="section">
+      <div class="container consult-faq-grid">
+        <div class="glass form-card reveal">
+          <span class="eyebrow">Konsultasi Gratis</span>
+          <h3>Jadwalkan Sesi Konsultasi</h3>
+          <p class="muted small-text">Pilih tanggal dan slot waktu yang tersedia bersama strategist kami.</p>
+          <form id="consultForm" novalidate>
+            <div class="form-row">
+              <div class="field">
+                <label for="consName">Nama *</label>
+                <input id="consName" type="text" class="input" placeholder="Nama Anda" required />
+              </div>
+              <div class="field">
+                <label for="consEmail">Email *</label>
+                <input id="consEmail" type="email" class="input" placeholder="email@bisnis.com" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="consDate">Tanggal Konsultasi *</label>
+                <input id="consDate" type="date" class="input" required />
+              </div>
+              <div class="field">
+                <label for="consTime">Slot Waktu *</label>
+                <select id="consTime" class="input" required>
+                  <option value="">Pilih jam</option>
+                  <option value="09:30 WIB">09:30 WIB</option>
+                  <option value="11:30 WIB">11:30 WIB</option>
+                  <option value="14:00 WIB">14:00 WIB</option>
+                  <option value="16:00 WIB">16:00 WIB</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="consTopic">Topik / Kebutuhan Utama *</label>
+              <textarea id="consTopic" rows="2" class="input" placeholder="Target kampanye, kendala saat ini, atau paket khusus..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Booking Konsultasi</button>
+            <p id="consFeedback" class="form-feedback" role="status"></p>
+          </form>
+        </div>
+
+        <div id="faq" class="glass faq-card reveal">
+          <span class="eyebrow">FAQ</span>
+          <h3>Pertanyaan yang Sering Diajukan</h3>
+          <div id="faqList" class="faq-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. KONTAK -->
+    <section id="contact" class="section">
+      <div class="container contact-grid">
+        <form id="contactForm" class="glass form-card reveal" novalidate>
+          <span class="eyebrow">Hubungi Kami</span>
+          <h3>Kirim Pesan & Kebutuhan Bisnis</h3>
+          <div class="form-row">
+            <div class="field">
+              <label for="cName">Nama Lengkap *</label>
+              <input id="cName" type="text" class="input" required />
+            </div>
+            <div class="field">
+              <label for="cEmail">Email *</label>
+              <input id="cEmail" type="email" class="input" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="cWa">Nomor WhatsApp *</label>
+              <input id="cWa" type="tel" class="input" placeholder="08xxxxxxxxxx" required />
+            </div>
+            <div class="field">
+              <label for="cCompany">Nama Perusahaan *</label>
+              <input id="cCompany" type="text" class="input" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="cService">Jenis Layanan *</label>
+              <select id="cService" class="input" required>
+                <option value="">Pilih layanan</option>
+                <option>SEO (Search Engine Optimization)</option>
+                <option>SEM / Google Ads</option>
+                <option>Social Media Marketing & Management</option>
+                <option>Meta Ads</option>
+                <option>Content & Email Marketing</option>
+                <option>Website Development & Branding</option>
+                <option>Paket Khusus / Enterprise</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="cBudget">Estimasi Budget *</label>
+              <select id="cBudget" class="input" required>
+                <option value="">Pilih estimasi budget</option>
+                <option>Rp 5.000.000 – Rp 15.000.000</option>
+                <option>Rp 15.000.000 – Rp 35.000.000</option>
+                <option>Rp 35.000.000 – Rp 75.000.000</option>
+                <option>> Rp 75.000.000</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="cMessage">Pesan atau Kebutuhan Bisnis *</label>
+            <textarea id="cMessage" rows="3" class="input" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+          <p id="contactFeedback" class="form-feedback" role="status"></p>
+        </form>
+
+        <div class="glass contact-info reveal">
+          <h3>Informasi Kantor Ren Marketing</h3>
+          <p class="muted">Tim kami siap membantu merancang strategi pemasaran digital yang tepat untuk bisnis Anda.</p>
+          <ul class="contact-details">
+            <li><strong>Alamat:</strong> Jl. Jenderal Sudirman No. 88, Medan, Sumatera Utara</li>
+            <li><strong>Email:</strong> hello@renmarketing.id</li>
+            <li><strong>WhatsApp:</strong> +62 812-6000-8899</li>
+            <li><strong>Jam Operasional:</strong> Senin – Jumat, 09:00 – 18:00 WIB</li>
+          </ul>
+          <div class="social-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="chip">Instagram</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="chip">LinkedIn</a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="chip">YouTube</a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="chip">TikTok</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER LENGKAP -->
+  <footer class="footer">
+    <div class="container footer-top">
+      <div class="footer-brand">
+        <a href="#home" class="brand">
+          <span class="brand-mark">RM</span>
+          <span class="brand-name">Ren Marketing</span>
+        </a>
+        <p class="muted" style="margin-top:10px;">Agensi pemasaran digital modern untuk brand awareness, akuisisi pelanggan, traffic, dan pertumbuhan penjualan.</p>
+      </div>
+      <div>
+        <h4>Navigasi</h4>
+        <ul class="footer-links">
+          <li><a href="#about">Tentang Kami</a></li>
+          <li><a href="#services">Layanan</a></li>
+          <li><a href="#portfolio">Portofolio</a></li>
+          <li><a href="#pricing">Harga Paket</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Sumber Daya</h4>
+        <ul class="footer-links">
+          <li><a href="#reviews">Rating & Review</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Kontak</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Newsletter</h4>
+        <p class="muted small-text">Dapatkan insight campaign & strategi digital setiap minggu.</p>
+        <form id="newsletterForm" class="newsletter-form" novalidate>
+          <input id="newsEmail" type="email" class="input" placeholder="Email Anda" required />
+          <button type="submit" class="btn btn-primary btn-sm">Langganan</button>
+        </form>
+        <p id="newsFeedback" class="form-feedback" role="status"></p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="yearSpan"></span> Ren Marketing. Seluruh hak cipta dilindungi.</span>
+      <button id="backToTopBtn" class="btn btn-ghost btn-sm">Kembali ke Atas ↑</button>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a id="waFloatBtn" href="https://wa.me/6281260008899?text=Halo%20Ren%20Marketing%2C%20saya%20ingin%20konsultasi%20digital%20marketing."
+     target="_blank" rel="noopener noreferrer" class="wa-float" aria-label="Chat WhatsApp Ren Marketing">
+    WA Chat
+  </a>
+
+  <!-- Global Search Modal -->
+  <div id="searchModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="searchModalTitle">
+    <div class="modal-backdrop" data-close-modal="searchModal"></div>
+    <div class="modal-card glass">
+      <button class="modal-close" data-close-modal="searchModal" aria-label="Tutup pencarian">✕</button>
+      <h3 id="searchModalTitle">Pencarian Cepat</h3>
+      <p class="small-text muted" style="margin:6px 0 12px;">Cari layanan, studi kasus portofolio, atau artikel blog.</p>
+      <input id="globalSearchInput" type="search" class="input" placeholder="Ketik kata kunci (mis. SEO, KopiRimba, Google Ads)..." />
+      <div id="globalSearchResults" style="margin-top:14px;"></div>
+    </div>
+  </div>
+
+  <!-- Detail Modal (Layanan / Portofolio / Artikel) -->
+  <div id="detailModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+    <div class="modal-backdrop" data-close-modal="detailModal"></div>
+    <div class="modal-card glass">
+      <button class="modal-close" data-close-modal="detailModal" aria-label="Tutup modal">✕</button>
+      <div id="detailContent"></div>
+    </div>
+  </div>
+
+  <!-- Cart & Checkout Modal -->
+  <div id="cartModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="modal-backdrop" data-close-modal="cartModal"></div>
+    <div class="modal-card glass">
+      <button class="modal-close" data-close-modal="cartModal" aria-label="Tutup keranjang">✕</button>
+      <h3 id="cartTitle">Daftar Layanan & Checkout</h3>
+      <div id="cartItemsContainer"></div>
+      <form id="checkoutForm" class="checkout-form hidden" novalidate>
+        <div class="field">
+          <label for="payMethod">Metode Pembayaran</label>
+          <select id="payMethod" class="input">
+            <option value="Transfer Bank (BCA / Mandiri)">Transfer Bank (BCA / Mandiri)</option>
+            <option value="Virtual Account">Virtual Account</option>
+            <option value="QRIS / E-Wallet">QRIS / E-Wallet</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Proses Pesanan & Buat Invoice</button>
+        <p id="checkoutFeedback" class="form-feedback" role="status"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Auth Modal (Login / Register / Forgot Password) -->
+  <div id="authModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+    <div class="modal-backdrop" data-close-modal="authModal"></div>
+    <div class="modal-card glass">
+      <button class="modal-close" data-close-modal="authModal" aria-label="Tutup autentikasi">✕</button>
+      <h3 id="authTitle">Akses Akun Ren Marketing</h3>
+      <div class="tab-bar">
+        <button type="button" class="tab-btn active" data-auth-mode="login">Login</button>
+        <button type="button" class="tab-btn" data-auth-mode="register">Daftar Pelanggan</button>
+        <button type="button" class="tab-btn" data-auth-mode="forgot">Lupa Password</button>
+      </div>
+      <p class="muted small-text" style="margin-bottom:12px;">
+        Akun demo: <code>client@ren.id</code> (Pelanggan) atau <code>admin@ren.id</code> (Admin) dengan password apa saja.
+      </p>
+
+      <form id="loginForm" class="auth-form" novalidate>
+        <div class="field">
+          <label for="loginEmail">Email *</label>
+          <input id="loginEmail" type="email" class="input" required />
+        </div>
+        <div class="field">
+          <label for="loginPass">Password *</label>
+          <input id="loginPass" type="password" class="input" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+
+      <form id="registerForm" class="auth-form hidden" novalidate>
+        <div class="field">
+          <label for="regName">Nama Lengkap *</label>
+          <input id="regName" type="text" class="input" required />
+        </div>
+        <div class="field">
+          <label for="regCompany">Nama Perusahaan *</label>
+          <input id="regCompany" type="text" class="input" required />
+        </div>
+        <div class="field">
+          <label for="regEmail">Email *</label>
+          <input id="regEmail" type="email" class="input" required />
+        </div>
+        <div class="field">
+          <label for="regPass">Password (min. 6 karakter) *</label>
+          <input id="regPass" type="password" class="input" minlength="6" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Buat Akun Pelanggan</button>
+      </form>
+
+      <form id="forgotForm" class="auth-form hidden" novalidate>
+        <div class="field">
+          <label for="forgotEmail">Email Terdaftar *</label>
+          <input id="forgotEmail" type="email" class="input" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Kirim Tautan Reset</button>
+      </form>
+      <p id="authFeedback" class="form-feedback" role="status"></p>
+    </div>
+  </div>
+
+  <!-- Protected Dashboard Modal (Customer & Admin) -->
+  <div id="dashboardModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="dashTitle">
+    <div class="modal-backdrop" data-close-modal="dashboardModal"></div>
+    <div class="modal-card modal-wide glass">
+      <button class="modal-close" data-close-modal="dashboardModal" aria-label="Tutup dashboard">✕</button>
+      <div id="dashboardContent"></div>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const STORAGE_KEY = 'ren_marketing_platform_v2';
+
+      const DEFAULT_STATE = {
+        currentUser: null,
+        users: [
+          { id: 'u1', name: 'Bima Pratama', email: 'client@ren.id', company: 'KopiRimba Roastery', role: 'client' },
+          { id: 'u2', name: 'Admin Utama', email: 'admin@ren.id', company: 'Ren Marketing HQ', role: 'admin' }
+        ],
+        cart: [],
+        notifications: [
+          { id: 1, text: 'Audit SEO & performa iklan kuartal ini tersedia untuk jadwal konsultasi.', unread: true },
+          { id: 2, text: 'Professional Plan memiliki slot onboarding prioritas minggu ini.', unread: true }
+        ],
+        services: [
+          { id: 'seo', code: 'SEO', name: 'SEO (Search Engine Optimization)', category: 'Search & Ads', price: 4500000, desc: 'Optimasi teknis, struktur konten, dan otoritas domain untuk peringkat organik berkelanjutan.', benefit: 'Meningkatkan traffic organik tertarget tanpa biaya klik berulang.', process: 'Audit teknis -> Riset keyword & intent -> On-page & konten -> Link building & laporan bulanan.', eta: '3–6 bulan untuk pertumbuhan signifikan' },
+          { id: 'sem', code: 'SEM', name: 'SEM (Search Engine Marketing)', category: 'Search & Ads', price: 5000000, desc: 'Kampanye pencarian berbayar presisi tinggi untuk menangkap calon pembeli aktif.', benefit: 'Mendapatkan leads & penjualan lebih cepat di momen pencarian tinggi.', process: 'Riset keyword komersial -> Penulisan ad copy -> Landing page alignment -> Bidding & CPA optimization.', eta: '1–2 minggu setup & optimasi awal' },
+          { id: 'smm', code: 'SMM', name: 'Social Media Marketing', category: 'Social & Content', price: 4000000, desc: 'Strategi kampanye sosial media untuk membangun brand awareness dan engagement komunitas.', benefit: 'Memperluas jangkauan merek di platform sosial utama.', process: 'Auditing akun & audiens -> Content pillar -> Kampanye kolaborasi -> Evaluasi engagement.', eta: 'Bulanan (berkelanjutan)' },
+          { id: 'sm-mgmt', code: 'MGMT', name: 'Social Media Management', category: 'Social & Content', price: 3800000, desc: 'Pengelolaan kalender konten, produksi posting, copywriting, dan penjadwalan konsisten.', benefit: 'Menghemat waktu tim internal dengan feed yang rapi dan terjadwal.', process: 'Content calendar -> Desain & caption -> Approval klien -> Publikasi & rekap bulanan.', eta: '30 hari per siklus' },
+          { id: 'gads', code: 'GADS', name: 'Google Ads', category: 'Search & Ads', price: 5500000, desc: 'Manajemen iklan Search, Display, YouTube, dan Performance Max dengan pelacakan konversi.', benefit: 'Kontrol anggaran transparan dengan fokus pada ROI/ROAS.', process: 'Setup conversion tracking -> Struktur campaign -> A/B testing -> Negative keyword & scaling.', eta: '2 minggu onboarding + optimasi mingguan' },
+          { id: 'mads', code: 'MADS', name: 'Meta Ads', category: 'Search & Ads', price: 5200000, desc: 'Kampanye iklan Instagram & Facebook berbasis funnel awareness, traffic, leads, dan catalog sales.', benefit: 'Menjangkau audiens spesifik berdasarkan minat, perilaku, dan lookalike.', process: 'Pixel/CAPI setup -> Creative testing -> Funnel retargeting -> Scaling pemenang.', eta: '2 minggu testing + optimasi harian' },
+          { id: 'content', code: 'CNT', name: 'Content Marketing', category: 'Social & Content', price: 3600000, desc: 'Produksi artikel edukatif, studi kasus, dan aset konten yang mengedukasi pasar.', benefit: 'Membangun kredibilitas brand dan mendukung funnel penjualan.', process: 'Pemetaan topik funnel -> Riset & penulisan -> Editorial review -> Distribusi & SEO.', eta: '2–4 minggu per batch konten' },
+          { id: 'webdev', code: 'WEB', name: 'Website Development', category: 'Web & Brand', price: 8500000, desc: 'Pengembangan website cepat, responsif, dan teroptimasi konversi untuk bisnis modern.', benefit: 'Meningkatkan kepercayaan pengunjung dan rasio konversi prospek.', process: 'Wireframe & UX -> UI design -> Development & speed optimization -> QA & launch.', eta: '3–6 minggu' },
+          { id: 'gdesign', code: 'DES', name: 'Graphic Design', category: 'Web & Brand', price: 3000000, desc: 'Desain aset visual promosi, katalog produk, deck presentasi, dan materi kampanye.', benefit: 'Konsistensi visual premium di setiap titik sentuh pelanggan.', process: 'Brief kreatif -> Sketsa konsep -> Revisi terarah -> Finalisasi multi-format.', eta: '5–10 hari kerja' },
+          { id: 'brand', code: 'BRD', name: 'Branding Strategy', category: 'Web & Brand', price: 7500000, desc: 'Perumusan positioning, brand voice, identitas visual, dan panduan merek (brand guidelines).', benefit: 'Membedakan bisnis Anda secara jelas di tengah persaingan.', process: 'Stakeholder & market research -> Positioning -> Identitas & guidelines -> Rollout plan.', eta: '3–5 minggu' },
+          { id: 'email', code: 'EML', name: 'Email Marketing', category: 'Social & Content', price: 3200000, desc: 'Automasi email onboarding, nurturing prospek, retensi pelanggan, dan kampanye promo.', benefit: 'Meningkatkan repeat order dan lifetime value (LTV) pelanggan.', process: 'Segmentasi audiens -> Alur automasi -> Copywriting & template -> Analisis open/click rate.', eta: '2–3 minggu setup awal' },
+          { id: 'inf', code: 'INF', name: 'Influencer Marketing', category: 'Social & Content', price: 6000000, desc: 'Kurasi kreator mikro hingga makro, negosiasi brief, dan pemantauan performa konten.', benefit: 'Social proof autentik yang mendorong kepercayaan audiens baru.', process: 'Seleksi creator -> Brief & kontrak -> Produksi & review konten -> Laporan reach & konversi.', eta: '3–4 minggu per kampanye' }
+        ],
+        portfolio: [
+          { id: 'p1', client: 'KopiRimba Roastery', category: 'SEO & SEM', title: 'Pertumbuhan Penjualan Langsung & Pencarian Organik', desc: 'Optimalisasi katalog produk, artikel panduan seduh, dan kampanye pencarian lokal.', strategy: 'Technical SEO, keyword cluster transaksi, dan Google Search Ads berbasis lokasi.', result: 'Peningkatan traffic organik +142% dan pesanan online +78% dalam 4 bulan.', growth: '+142% Traffic' },
+          { id: 'p2', client: 'VeloceHome Living', category: 'Paid Ads & Social', title: 'Kampanye Retargeting & Sosial Media Berkinerja Tinggi', desc: 'Penyusunan funnel video pendek dan retargeting katalog untuk produk dekorasi rumah.', strategy: 'Creative testing Meta Ads, TikTok/Reels hooks, dan segmentasi keranjang tertinggal.', result: 'ROAS mencapai 4.9x dengan penurunan biaya per prospek (CPL) sebesar 34%.', growth: '4.9x ROAS' },
+          { id: 'p3', client: 'MedikaCare Clinic', category: 'Web & Branding', title: 'Redesain Website & Identitas Digital Klinik', desc: 'Pembaruan antarmuka website, alur booking konsultasi, dan panduan identitas merek.', strategy: 'UX audit, kecepatan halaman < 1.8 detik, dan struktur halaman layanan yang jelas.', result: 'Konversi formulir janji temu naik +96% dalam 60 hari setelah peluncuran.', growth: '+96% Leads' }
+        ],
+        pricing: [
+          { id: 'basic', name: 'Basic Plan', badge: '', priceNumeric: 6500000, price: 'Rp 6.500.000 / bln', audience: 'Untuk bisnis pemula yang membangun fondasi digital.', services: ['12 Konten Sosial Media / bln', 'Setup & Optimasi 1 Kanal Ads / SEO Dasar', 'Laporan Kinerja Bulanan'], limits: 'Maksimal 1 channel utama, 1x revisi desain per aset.', duration: 'Kontrak minimum 3 bulan', features: ['Kalender konten bulanan', 'Konsultasi via chat & email'] },
+          { id: 'pro', name: 'Professional Plan', badge: 'Paling Populer', priceNumeric: 14500000, price: 'Rp 14.500.000 / bln', audience: 'Untuk bisnis yang sedang berkembang dan mengejar skala.', services: ['24 Konten + Video Pendek / bln', 'Manajemen Google Ads & Meta Ads', 'Optimasi SEO On-Page & Landing Page'], limits: 'Hingga 3 channel terintegrasi, 2x revisi per aset.', duration: 'Kontrak minimum 3–6 bulan', features: ['Dashboard laporan mingguan', 'Sesi evaluasi strategi 2x/bulan', 'Prioritas support'] },
+          { id: 'enterprise', name: 'Enterprise Plan', badge: '', priceNumeric: 28000000, price: 'Rp 28.000.000+ / bln', audience: 'Untuk perusahaan dengan strategi digital marketing lengkap.', services: ['Full-Funnel Omnichannel (SEO, SEM, Paid Social, Content)', 'Pengembangan & Optimasi Web/Landing Page', 'Influencer & Email Automation'], limits: 'Custom channel & alokasi tim spesialis dedicated.', duration: 'Kemitraan 6–12 bulan (custom SLA)', features: ['Dedicated account strategist', 'Custom analytics & funnel tracking', 'Workshop & konsultasi paket khusus'] }
+        ],
+        team: [
+          { initials: 'NS', name: 'Nadia Santoso', role: 'Head of Growth & Strategy', skill: 'Performance Marketing & Funnel', exp: '7+ tahun pengalaman', linkedin: 'https://linkedin.com', instagram: 'https://instagram.com' },
+          { initials: 'RW', name: 'Raka Wijaya', role: 'Lead SEO & Search Specialist', skill: 'Technical SEO & Google Ads', exp: '6+ tahun pengalaman', linkedin: 'https://linkedin.com', instagram: 'https://instagram.com' },
+          { initials: 'DK', name: 'Dinda Kusuma', role: 'Creative & Brand Director', skill: 'Brand Identity & Art Direction', exp: '6+ tahun pengalaman', linkedin: 'https://linkedin.com', instagram: 'https://instagram.com' },
+          { initials: 'FA', name: 'Farhan Alamsyah', role: 'Web & Conversion Engineer', skill: 'Web Performance & Tracking', exp: '5+ tahun pengalaman', linkedin: 'https://linkedin.com', instagram: 'https://instagram.com' }
+        ],
+        reviews: [
+          { id: 'r1', name: 'Bima Pratama', email: 'bima@kopirimba.id', company: 'KopiRimba Roastery', rating: 5, comment: 'Struktur kampanye pencarian dan optimasi halaman produk sangat rapi. Penjualan langsung meningkat konsisten.', date: '14 Okt 2026', status: 'approved' },
+          { id: 'r2', name: 'Clara Halim', email: 'clara@velocehome.id', company: 'VeloceHome Living', rating: 5, comment: 'Tim cepat merespons evaluasi mingguan dan membantu merapikan materi iklan hingga ROAS membaik.', date: '02 Nov 2026', status: 'approved' },
+          { id: 'r3', name: 'Yoga Saputra', email: 'yoga@medikacare.id', company: 'MedikaCare Clinic', rating: 4, comment: 'Alur pembuatan website baru berjalan jelas sesuai timeline dan mempermudah pasien menjadwalkan kunjungan.', date: '18 Nov 2026', status: 'approved' }
+        ],
+        articles: [
+          { id: 'a1', category: 'SEO', title: 'Menyusun Topik SEO Berdasarkan Search Intent Calon Pembeli', author: 'Raka Wijaya', date: '10 Nov 2026', summary: 'Cara membedakan kata kunci informasional, komparasi, dan transaksional agar traffic SEO lebih relevan.', content: 'Banyak bisnis mengejar volume pencarian besar tanpa memetakan intent pengguna. Dengan memisahkan konten edukasi dan halaman layanan/produk, peluang konversi meningkat tanpa mengorbankan visibilitas organik.' },
+          { id: 'a2', category: 'Google Ads', title: 'Mengapa Tracking Konversi Menentukan Efisiensi Google Ads', author: 'Nadia Santoso', date: '04 Nov 2026', summary: 'Langkah dasar menghubungkan sinyal konversi agar algoritma bidding mengarah pada prospek berkualitas.', content: 'Tanpa data konversi yang akurat, optimasi anggaran iklan cenderung berhenti pada klik murah. Ukur tindakan bernilai seperti pengisian formulir terverifikasi, chat masuk, atau transaksi selesai.' },
+          { id: 'a3', category: 'Social Media', title: 'Membangun Content Pillar Sosial Media yang Tidak Monoton', author: 'Dinda Kusuma', date: '27 Okt 2026', summary: 'Kombinasi edukasi, bukti sosial, di balik layar, dan penawaran agar audiens tetap terlibat.', content: 'Audiens cepat jenuh jika setiap unggahan berisi promosi langsung. Seimbangkan edukasi singkat, cerita di balik layar, dan studi kasus agar merek terasa dekat dan kredibel.' },
+          { id: 'a4', category: 'Branding', title: 'Konsistensi Brand Identity sebagai Pondasi Kepercayaan', author: 'Farhan Alamsyah', date: '19 Okt 2026', summary: 'Menjaga keselarasan tipografi, warna, dan pesan merek di website maupun kampanye iklan.', content: 'Identitas merek yang konsisten memudahkan audiens mengenali bisnis Anda dalam hitungan detik serta memperkuat ingatan merek saat mereka siap membeli.' }
+        ],
+        faq: [
+          { q: 'Apakah saya bisa memilih satu layanan saja tanpa mengambil paket bulanan?', a: 'Ya. Anda dapat memilih layanan satuan di bagian Layanan, menambahkannya ke Keranjang, atau menjadwalkan konsultasi terlebih dahulu.' },
+          { q: 'Bagaimana proses persetujuan ulasan di halaman Rating & Review?', a: 'Setiap ulasan yang dikirim lewat formulir dicatat terlebih dahulu dan ditampilkan ke daftar publik setelah melalui validasi/persetujuan admin.' },
+          { q: 'Apakah tersedia paket khusus (custom) untuk kebutuhan spesifik?', a: 'Tersedia. Anda dapat memilih Enterprise Plan atau mengisi formulir konsultasi/kontak untuk penyesuaian ruang lingkup dan anggaran.' },
+          { q: 'Bagaimana cara mengakses Dashboard Pelanggan dan Dashboard Admin?', a: 'Klik tombol Login di navbar dan gunakan akun pelanggan (client@ren.id) atau admin (admin@ren.id) untuk membuka dashboard sesuai hak akses.' }
+        ],
+        orders: [
+          { id: 'INV-2026-101', clientEmail: 'client@ren.id', item: 'Professional Plan', amount: 14500000, method: 'Transfer Bank (BCA / Mandiri)', status: 'Lunas', progress: 65, projectStatus: 'Sedang Berjalan' }
+        ],
+        messages: [
+          { id: 'm1', name: 'Sinta Wijaya', email: 'sinta@sentosa.id', wa: '081234567890', company: 'Sentosa Retail', service: 'SEO & Google Ads', budget: 'Rp 15.000.000 – Rp 35.000.000', message: 'Tertarik optimasi toko online untuk kuartal berikutnya.' }
+        ],
+        consultations: [
+          { id: 'c1', name: 'Bima Pratama', email: 'client@ren.id', date: '2026-11-28', time: '14:00 WIB', topic: 'Rencana ekspansi kampanye Q1' }
+        ],
+        monthlySales: [
+          { month: 'Jun', amount: 42000000 },
+          { month: 'Jul', amount: 58000000 },
+          { month: 'Agu', amount: 64000000 },
+          { month: 'Sep', amount: 79000000 },
+          { month: 'Okt', amount: 92000000 },
+          { month: 'Nov', amount: 114000000 }
+        ]
+      };
+
+      function cloneDefault() {
+        return JSON.parse(JSON.stringify(DEFAULT_STATE));
+      }
+
+      function loadState() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) return cloneDefault();
+          return { ...cloneDefault(), ...JSON.parse(raw) };
+        } catch {
+          return cloneDefault();
+        }
+      }
+
+      let state = loadState();
+      let activeAdminTab = 'overview';
+
+      function saveState() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        } catch {
+          // Ignore storage quota errors in restricted frames
+        }
+      }
+
+      function formatIDR(num) {
+        return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(num);
+      }
+
+      function escapeHTML(str = '') {
+        return String(str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      function pushNotification(text) {
+        state.notifications.unshift({ id: Date.now(), text, unread: true });
+        saveState();
+        renderNotifications();
+      }
+
+      // Preloader & Footer Year
+      const hidePreloader = () => {
+        const pre = document.getElementById('preloader');
+        if (pre) pre.classList.add('done');
+      };
+      window.addEventListener('load', () => setTimeout(hidePreloader, 220));
+      setTimeout(hidePreloader, 1200);
+      document.getElementById('yearSpan').textContent = new Date().getFullYear();
+
+      // Sticky Navbar & Mobile Hamburger
+      const navbar = document.getElementById('navbar');
+      const hamburger = document.getElementById('hamburgerBtn');
+      const navMenu = document.getElementById('navMenu');
+
+      window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 24);
+      });
+
+      hamburger.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      navMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => navMenu.classList.remove('open'));
+      });
+
+      document.getElementById('backToTopBtn').addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // Scroll Reveal & Animated Stats
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.08 }
+      );
+      document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+
+      let statsAnimated = false;
+      const statsObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !statsAnimated) {
+              statsAnimated = true;
+              document.querySelectorAll('.stat-value').forEach((el) => {
+                const target = Number(el.dataset.target || 0);
+                const suffix = el.dataset.suffix || '';
+                let current = 0;
+                const step = Math.max(1, Math.ceil(target / 45));
+                const timer = setInterval(() => {
+                  current += step;
+                  if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                  }
+                  el.textContent = `${current}${suffix}`;
+                }, 24);
+              });
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      const heroStats = document.getElementById('heroStats');
+      if (heroStats) statsObserver.observe(heroStats);
+
+      // Global Search Modal
+      const searchModal = document.getElementById('searchModal');
+      const globalSearchInput = document.getElementById('globalSearchInput');
+      const globalSearchResults = document.getElementById('globalSearchResults');
+
+      document.getElementById('globalSearchBtn').addEventListener('click', () => {
+        searchModal.classList.remove('hidden');
+        globalSearchInput.value = '';
+        globalSearchResults.innerHTML = '<p class="small-text muted">Mulai mengetik untuk mencari layanan, portofolio, atau artikel...</p>';
+        setTimeout(() => globalSearchInput.focus(), 50);
+      });
+
+      globalSearchInput.addEventListener('input', (e) => {
+        const q = e.target.value.trim().toLowerCase();
+        if (!q) {
+          globalSearchResults.innerHTML = '';
+          return;
+        }
+        const svcMatches = state.services.filter((s) => s.name.toLowerCase().includes(q) || s.desc.toLowerCase().includes(q));
+        const portMatches = state.portfolio.filter((p) => p.title.toLowerCase().includes(q) || p.client.toLowerCase().includes(q));
+        const artMatches = state.articles.filter((a) => a.title.toLowerCase().includes(q) || a.summary.toLowerCase().includes(q));
+
+        const rows = [
+          ...svcMatches.map((s) => `<div class="crud-row"><span><strong>[Layanan]</strong> ${escapeHTML(s.name)}</span><button type="button" class="btn btn-outline btn-xs" data-service-detail="${s.id}" data-close-modal="searchModal">Detail</button></div>`),
+          ...portMatches.map((p) => `<div class="crud-row"><span><strong>[Portofolio]</strong> ${escapeHTML(p.client)} — ${escapeHTML(p.title)}</span><button type="button" class="btn btn-outline btn-xs" data-portfolio-detail="${p.id}" data-close-modal="searchModal">Lihat</button></div>`),
+          ...artMatches.map((a) => `<div class="crud-row"><span><strong>[Blog]</strong> ${escapeHTML(a.title)}</span><button type="button" class="btn btn-outline btn-xs" data-article-detail="${a.id}" data-close-modal="searchModal">Baca</button></div>`)
+        ];
+
+        globalSearchResults.innerHTML = rows.length ? rows.join('') : '<p class="small-text muted">Tidak ada hasil ditemukan.</p>';
+      });
+
+      // Notifications
+      const notifPanel = document.getElementById('notifPanel');
+      document.getElementById('notifBtn').addEventListener('click', () => {
+        notifPanel.classList.toggle('hidden');
+      });
+
+      document.getElementById('clearNotifBtn').addEventListener('click', () => {
+        state.notifications.forEach((n) => (n.unread = false));
+        saveState();
+        renderNotifications();
+      });
+
+      function renderNotifications() {
+        const unreadCount = state.notifications.filter((n) => n.unread).length;
+        document.getElementById('notifCount').textContent = String(unreadCount);
+        const list = document.getElementById('notifList');
+        list.innerHTML = state.notifications.length
+          ? state.notifications.slice(0, 8).map((n) => `<li>${escapeHTML(n.text)}</li>`).join('')
+          : '<li>Tidak ada notifikasi.</li>';
+      }
+
+      // Render Team
+      function renderTeam() {
+        document.getElementById('teamGrid').innerHTML = state.team
+          .map(
+            (m) => `
+            <article class="glass team-card">
+              <div class="avatar">${escapeHTML(m.initials)}</div>
+              <h4>${escapeHTML(m.name)}</h4>
+              <p class="small-text" style="color:var(--pastel-green);margin:4px 0 8px;">${escapeHTML(m.role)}</p>
+              <p class="small-text">${escapeHTML(m.skill)}</p>
+              <p class="small-text muted" style="margin:6px 0 12px;">${escapeHTML(m.exp)}</p>
+              <div class="social-links" style="justify-content:center;">
+                <a href="${escapeHTML(m.linkedin || 'https://linkedin.com')}" target="_blank" rel="noopener noreferrer" class="chip">LinkedIn</a>
+                <a href="${escapeHTML(m.instagram || 'https://instagram.com')}" target="_blank" rel="noopener noreferrer" class="chip">Instagram</a>
+              </div>
+            </article>`
+          )
+          .join('');
+      }
+
+      // Render Services
+      let activeServiceCat = 'all';
+      let serviceQuery = '';
+
+      function renderServices() {
+        const filtered = state.services.filter((s) => {
+          const matchCat = activeServiceCat === 'all' || s.category === activeServiceCat;
+          const matchQ =
+            !serviceQuery ||
+            s.name.toLowerCase().includes(serviceQuery) ||
+            s.desc.toLowerCase().includes(serviceQuery);
+          return matchCat && matchQ;
+        });
+
+        document.getElementById('servicesGrid').innerHTML = filtered
+          .map(
+            (s) => `
+            <article class="glass service-card">
+              <div>
+                <div class="service-icon">${escapeHTML(s.code)}</div>
+                <h4 style="margin-top:12px;">${escapeHTML(s.name)}</h4>
+                <p class="small-text" style="margin-top:6px;">${escapeHTML(s.desc)}</p>
+                <p class="service-benefit" style="margin-top:10px;">Manfaat: ${escapeHTML(s.benefit)}</p>
+              </div>
+              <div>
+                <p class="small-text muted" style="margin-bottom:10px;">Mulai dari <strong>${formatIDR(s.price)}</strong></p>
+                <div class="card-actions">
+                  <button class="btn btn-outline btn-sm" data-service-detail="${s.id}">Pelajari Lebih Lanjut</button>
+                  <button class="btn btn-primary btn-sm" data-add-cart="${s.id}">+ Pilih</button>
+                </div>
+              </div>
+            </article>`
+          )
+          .join('');
+      }
+
+      document.querySelectorAll('#serviceFilters .chip').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('#serviceFilters .chip').forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          activeServiceCat = btn.dataset.filter;
+          renderServices();
+        });
+      });
+
+      document.getElementById('serviceSearch').addEventListener('input', (e) => {
+        serviceQuery = e.target.value.trim().toLowerCase();
+        renderServices();
+      });
+
+      // Render Portfolio
+      let activePortfolioCat = 'all';
+
+      function renderPortfolio() {
+        const list =
+          activePortfolioCat === 'all'
+            ? state.portfolio
+            : state.portfolio.filter((p) => p.category === activePortfolioCat);
+
+        document.getElementById('portfolioGrid').innerHTML = list
+          .map(
+            (p) => `
+            <article class="glass media-card">
+              <div class="media-banner">
+                <span class="chip">${escapeHTML(p.category)}</span>
+                <span class="kpi-tag">${escapeHTML(p.growth)}</span>
+              </div>
+              <div class="media-body">
+                <small class="muted">Klien: ${escapeHTML(p.client)}</small>
+                <h4>${escapeHTML(p.title)}</h4>
+                <p class="small-text">${escapeHTML(p.desc)}</p>
+                <p class="small-text" style="color:var(--pastel-green);">Hasil: ${escapeHTML(p.result)}</p>
+                <button class="btn btn-outline btn-sm" style="align-self:flex-start;margin-top:auto;" data-portfolio-detail="${p.id}">Lihat Detail Proyek</button>
+              </div>
+            </article>`
+          )
+          .join('');
+      }
+
+      document.querySelectorAll('#portfolioFilters .chip').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('#portfolioFilters .chip').forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          activePortfolioCat = btn.dataset.portfolioFilter;
+          renderPortfolio();
+        });
+      });
+
+      // Render Pricing
+      function renderPricing() {
+        document.getElementById('pricingGrid').innerHTML = state.pricing
+          .map(
+            (pkg) => `
+            <article class="glass pricing-card ${pkg.badge ? 'popular' : ''}">
+              <div>
+                ${pkg.badge ? `<span class="popular-badge">${escapeHTML(pkg.badge)}</span>` : ''}
+                <h3>${escapeHTML(pkg.name)}</h3>
+                <p class="small-text">${escapeHTML(pkg.audience)}</p>
+                <div class="price-amount">${escapeHTML(pkg.price)}</div>
+                <p class="small-text muted"><strong>Durasi:</strong> ${escapeHTML(pkg.duration)}</p>
+                <p class="small-text muted" style="margin-top:4px;"><strong>Batasan:</strong> ${escapeHTML(pkg.limits)}</p>
+                <ul class="clean-list" style="margin-top:12px;">
+                  ${pkg.services.map((item) => `<li>${escapeHTML(item)}</li>`).join('')}
+                  ${pkg.features.map((item) => `<li>${escapeHTML(item)}</li>`).join('')}
+                </ul>
+              </div>
+              <div class="card-actions">
+                <button class="btn btn-primary btn-sm" data-select-plan="${pkg.id}">Pilih Paket</button>
+                <a href="#consultation" class="btn btn-secondary btn-sm">Konsultasi Khusus</a>
+              </div>
+            </article>`
+          )
+          .join('');
+      }
+
+      // Rating & Review System (Approved reviews only on public list)
+      const starPicker = document.getElementById('starPicker');
+      const revRatingInput = document.getElementById('revRating');
+
+      starPicker.querySelectorAll('.star-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const val = Number(btn.dataset.value);
+          revRatingInput.value = String(val);
+          starPicker.querySelectorAll('.star-btn').forEach((b) => {
+            b.classList.toggle('active', Number(b.dataset.value) <= val);
+          });
+        });
+      });
+
+      function renderReviews() {
+        const approved = state.reviews.filter((r) => r.status === 'approved');
+        const count = approved.length;
+        const avg = count ? (approved.reduce((acc, r) => acc + Number(r.rating), 0) / count).toFixed(1) : '0.0';
+
+        document.getElementById('avgRatingValue').textContent = avg;
+        document.getElementById('avgRatingStars').textContent = '★'.repeat(Math.round(Number(avg))) + '☆'.repeat(5 - Math.round(Number(avg)));
+        document.getElementById('totalReviewsText').textContent = `${count} ulasan terpublikasi`;
+
+        const barsHtml = [5, 4, 3, 2, 1]
+          .map((star) => {
+            const starCount = approved.filter((r) => Number(r.rating) === star).length;
+            const pct = count ? Math.round((starCount / count) * 100) : 0;
+            return `
+              <div class="bar-row">
+                <span>${star} ★</span>
+                <div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div>
+                <span>${starCount}</span>
+              </div>`;
+          })
+          .join('');
+        document.getElementById('ratingBreakdown').innerHTML = barsHtml;
+
+        document.getElementById('approvedReviewsList').innerHTML = approved
+          .map(
+            (r) => `
+            <article class="glass review-card">
+              <div class="review-head">
+                <div class="mini-avatar">${escapeHTML(r.name.slice(0, 2).toUpperCase())}</div>
+                <div>
+                  <h4>${escapeHTML(r.name)}</h4>
+                  <small class="muted">${escapeHTML(r.company)} • ${escapeHTML(r.date)}</small>
+                </div>
+              </div>
+              <div class="stars-display">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</div>
+              <p class="small-text">${escapeHTML(r.comment)}</p>
+            </article>`
+          )
+          .join('');
+      }
+
+      document.getElementById('reviewForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('revName').value.trim();
+        const email = document.getElementById('revEmail').value.trim();
+        const company = document.getElementById('revCompany').value.trim();
+        const rating = Number(revRatingInput.value);
+        const comment = document.getElementById('revComment').value.trim();
+        const fb = document.getElementById('revFeedback');
+
+        if (!name || !email.includes('@') || !company || !rating || !comment) {
+          fb.textContent = 'Mohon lengkapi semua kolom dan pilih rating bintang 1–5.';
+          return;
+        }
+
+        state.reviews.unshift({
+          id: `r_${Date.now()}`,
+          name,
+          email,
+          company,
+          rating,
+          comment,
+          date: new Date().toLocaleDateString('id-ID', { day: '2-digit', month: 'short', year: 'numeric' }),
+          status: 'pending'
+        });
+        saveState();
+        pushNotification(`Ulasan baru dari ${name} (${company}) menunggu persetujuan admin.`);
+        e.target.reset();
+        revRatingInput.value = '';
+        starPicker.querySelectorAll('.star-btn').forEach((b) => b.classList.remove('active'));
+        fb.textContent = 'Terima kasih! Ulasan Anda tersimpan dan menunggu validasi/persetujuan admin.';
+      });
+
+      // Render Blog
+      let activeBlogCat = 'all';
+      let blogQuery = '';
+
+      function renderBlog() {
+        const items = state.articles.filter((a) => {
+          const catOk = activeBlogCat === 'all' || a.category === activeBlogCat;
+          const qOk =
+            !blogQuery ||
+            a.title.toLowerCase().includes(blogQuery) ||
+            a.summary.toLowerCase().includes(blogQuery);
+          return catOk && qOk;
+        });
+
+        document.getElementById('blogGrid').innerHTML = items
+          .map(
+            (a) => `
+            <article class="glass media-card">
+              <div class="media-banner">
+                <span class="chip">${escapeHTML(a.category)}</span>
+                <small class="muted">${escapeHTML(a.date)}</small>
+              </div>
+              <div class="media-body">
+                <h4>${escapeHTML(a.title)}</h4>
+                <p class="small-text">${escapeHTML(a.summary)}</p>
+                <small class="muted">Oleh ${escapeHTML(a.author)}</small>
+                <button class="btn btn-outline btn-sm" style="align-self:flex-start;margin-top:auto;" data-article-detail="${a.id}">Baca Artikel</button>
+              </div>
+            </article>`
+          )
+          .join('');
+      }
+
+      document.querySelectorAll('#blogCategories .chip').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('#blogCategories .chip').forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          activeBlogCat = btn.dataset.blogCat;
+          renderBlog();
+        });
+      });
+
+      document.getElementById('blogSearch').addEventListener('input', (e) => {
+        blogQuery = e.target.value.trim().toLowerCase();
+        renderBlog();
+      });
+
+      // Render FAQ
+      function renderFAQ() {
+        document.getElementById('faqList').innerHTML = state.faq
+          .map(
+            (f, idx) => `
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false" data-faq-idx="${idx}">
+                <span>${escapeHTML(f.q)}</span>
+                <span>+</span>
+              </button>
+              <div class="faq-a hidden">${escapeHTML(f.a)}</div>
+            </div>`
+          )
+          .join('');
+
+        document.querySelectorAll('.faq-q').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const ans = btn.nextElementSibling;
+            const open = !ans.classList.contains('hidden');
+            ans.classList.toggle('hidden');
+            btn.setAttribute('aria-expanded', String(!open));
+            btn.lastElementChild.textContent = open ? '+' : '−';
+          });
+        });
+      }
+
+      // Consultation Booking
+      document.getElementById('consultForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('consName').value.trim();
+        const email = document.getElementById('consEmail').value.trim();
+        const date = document.getElementById('consDate').value;
+        const time = document.getElementById('consTime').value;
+        const topic = document.getElementById('consTopic').value.trim();
+        const fb = document.getElementById('consFeedback');
+
+        if (!name || !email.includes('@') || !date || !time || !topic) {
+          fb.textContent = 'Harap lengkapi seluruh data jadwal konsultasi.';
+          return;
+        }
+
+        state.consultations.unshift({ id: `c_${Date.now()}`, name, email, date, time, topic });
+        saveState();
+        pushNotification(`Jadwal konsultasi baru: ${name} pada ${date} (${time}).`);
+        e.target.reset();
+        fb.textContent = `Konsultasi berhasil dijadwalkan untuk ${date} pukul ${time}.`;
+      });
+
+      // Contact Form & Newsletter
+      document.getElementById('contactForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('cName').value.trim();
+        const email = document.getElementById('cEmail').value.trim();
+        const wa = document.getElementById('cWa').value.trim();
+        const company = document.getElementById('cCompany').value.trim();
+        const service = document.getElementById('cService').value;
+        const budget = document.getElementById('cBudget').value;
+        const message = document.getElementById('cMessage').value.trim();
+        const fb = document.getElementById('contactFeedback');
+
+        if (!name || !email.includes('@') || wa.length < 8 || !company || !service || !budget || !message) {
+          fb.textContent = 'Mohon periksa kembali seluruh kolom formulir kontak.';
+          return;
+        }
+
+        state.messages.unshift({ id: `m_${Date.now()}`, name, email, wa, company, service, budget, message });
+        saveState();
+        pushNotification(`Pesan bisnis baru dari ${name} (${company}) untuk ${service}.`);
+        e.target.reset();
+        fb.textContent = 'Pesan Anda telah terkirim. Tim Ren Marketing akan menghubungi Anda segera.';
+      });
+
+      document.getElementById('newsletterForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('newsEmail').value.trim();
+        const fb = document.getElementById('newsFeedback');
+        if (!email.includes('@')) {
+          fb.textContent = 'Masukkan alamat email yang valid.';
+          return;
+        }
+        e.target.reset();
+        fb.textContent = 'Berhasil berlangganan newsletter Ren Marketing.';
+      });
+
+      // Cart & Checkout
+      function updateCartBadge() {
+        document.getElementById('cartCount').textContent = String(state.cart.length);
+      }
+
+      function addItemToCart(title, price) {
+        state.cart.push({ uid: Date.now() + Math.random(), title, price });
+        saveState();
+        updateCartBadge();
+        pushNotification(`"${title}" ditambahkan ke daftar layanan pilihan.`);
+      }
+
+      function openCartModal() {
+        const container = document.getElementById('cartItemsContainer');
+        const checkoutForm = document.getElementById('checkoutForm');
+        document.getElementById('checkoutFeedback').textContent = '';
+
+        if (!state.cart.length) {
+          container.innerHTML = '<p class="muted" style="margin:14px 0;">Belum ada layanan atau paket yang dipilih.</p>';
+          checkoutForm.classList.add('hidden');
+        } else {
+          const total = state.cart.reduce((sum, i) => sum + i.price, 0);
+          container.innerHTML = `
+            <div style="margin:14px 0;">
+              ${state.cart
+                .map(
+                  (item, idx) => `
+                  <div class="crud-row">
+                    <span>${escapeHTML(item.title)} — <strong>${formatIDR(item.price)}</strong></span>
+                    <button type="button" class="link-btn" data-remove-cart="${idx}">Hapus</button>
+                  </div>`
+                )
+                .join('')}
+            </div>
+            <p style="margin-bottom:12px;">Total Estimasi: <strong style="color:var(--pastel-green);">${formatIDR(total)}</strong></p>
+          `;
+          checkoutForm.classList.remove('hidden');
+
+          container.querySelectorAll('[data-remove-cart]').forEach((btn) => {
+            btn.addEventListener('click', () => {
+              state.cart.splice(Number(btn.dataset.removeCart), 1);
+              saveState();
+              updateCartBadge();
+              openCartModal();
+            });
+          });
+        }
+
+        document.getElementById('cartModal').classList.remove('hidden');
+      }
+
+      document.getElementById('cartBtn').addEventListener('click', openCartModal);
+
+      document.getElementById('checkoutForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const total = state.cart.reduce((sum, i) => sum + i.price, 0);
+        const method = document.getElementById('payMethod').value;
+        const summaryTitle = state.cart.map((i) => i.title).join(', ');
+        const invId = `INV-${Math.floor(100000 + Math.random() * 900000)}`;
+
+        state.orders.unshift({
+          id: invId,
+          clientEmail: state.currentUser ? state.currentUser.email : 'guest@ren.id',
+          item: summaryTitle,
+          amount: total,
+          method,
+          status: 'Menunggu Verifikasi',
+          progress: 15,
+          projectStatus: 'Onboarding'
+        });
+        state.cart = [];
+        saveState();
+        updateCartBadge();
+        pushNotification(`Pesanan ${invId} (${formatIDR(total)}) dibuat via ${method}.`);
+        document.getElementById('checkoutFeedback').textContent = `Pesanan berhasil dibuat dengan nomor invoice ${invId}.`;
+        setTimeout(() => openCartModal(), 700);
+      });
+
+      // Detail Modals
+      const detailModal = document.getElementById('detailModal');
+      const detailContent = document.getElementById('detailContent');
+
+      function showDetail(html) {
+        detailContent.innerHTML = html;
+        detailModal.classList.remove('hidden');
+      }
+
+      document.addEventListener('click', (e) => {
+        const svcId = e.target.closest('[data-service-detail]')?.dataset.serviceDetail;
+        if (svcId) {
+          const s = state.services.find((x) => x.id === svcId);
+          if (s) {
+            showDetail(`
+              <span class="eyebrow">${escapeHTML(s.category)}</span>
+              <h3>${escapeHTML(s.name)}</h3>
+              <p style="margin:10px 0;">${escapeHTML(s.desc)}</p>
+              <p class="small-text"><strong>Manfaat:</strong> ${escapeHTML(s.benefit)}</p>
+              <p class="small-text" style="margin-top:8px;"><strong>Proses Pengerjaan:</strong> ${escapeHTML(s.process)}</p>
+              <p class="small-text" style="margin-top:8px;"><strong>Estimasi Waktu:</strong> ${escapeHTML(s.eta)}</p>
+              <p class="small-text" style="margin-top:8px;color:var(--pastel-green);"><strong>Investasi mulai:</strong> ${formatIDR(s.price)}</p>
+              <div class="card-actions" style="margin-top:16px;">
+                <button type="button" class="btn btn-primary btn-sm" id="modalAddSvc">Tambah ke Keranjang</button>
+                <a href="#consultation" class="btn btn-secondary btn-sm" id="modalConsultLink">Konsultasi Layanan</a>
+              </div>
+            `);
+            document.getElementById('modalAddSvc')?.addEventListener('click', () => {
+              addItemToCart(s.name, s.price);
+              detailModal.classList.add('hidden');
+            });
+            document.getElementById('modalConsultLink')?.addEventListener('click', () => detailModal.classList.add('hidden'));
+          }
+        }
+
+        const addCartId = e.target.closest('[data-add-cart]')?.dataset.addCart;
+        if (addCartId) {
+          const s = state.services.find((x) => x.id === addCartId);
+          if (s) addItemToCart(s.name, s.price);
+        }
+
+        const planId = e.target.closest('[data-select-plan]')?.dataset.selectPlan;
+        if (planId) {
+          const pkg = state.pricing.find((x) => x.id === planId);
+          if (pkg) {
+            addItemToCart(pkg.name, pkg.priceNumeric || 10000000);
+            openCartModal();
+          }
+        }
+
+        const portId = e.target.closest('[data-portfolio-detail]')?.dataset.portfolioDetail;
+        if (portId) {
+          const p = state.portfolio.find((x) => x.id === portId);
+          if (p) {
+            showDetail(`
+              <span class="eyebrow">${escapeHTML(p.category)}</span>
+              <h3>${escapeHTML(p.title)}</h3>
+              <p class="small-text muted">Klien: ${escapeHTML(p.client)}</p>
+              <p style="margin:12px 0;">${escapeHTML(p.desc)}</p>
+              <p class="small-text"><strong>Strategi:</strong> ${escapeHTML(p.strategy)}</p>
+              <p class="small-text" style="margin-top:8px;color:var(--pastel-green);"><strong>Hasil:</strong> ${escapeHTML(p.result)}</p>
+            `);
+          }
+        }
+
+        const artId = e.target.closest('[data-article-detail]')?.dataset.articleDetail;
+        if (artId) {
+          const a = state.articles.find((x) => x.id === artId);
+          if (a) {
+            const related = state.articles.filter((x) => x.id !== a.id && x.category === a.category);
+            showDetail(`
+              <span class="eyebrow">${escapeHTML(a.category)} • ${escapeHTML(a.date)}</span>
+              <h3>${escapeHTML(a.title)}</h3>
+              <p class="small-text muted" style="margin:6px 0 14px;">Penulis: ${escapeHTML(a.author)}</p>
+              <p>${escapeHTML(a.content)}</p>
+              ${
+                related.length
+                  ? `<div style="margin-top:18px;"><h4 style="margin-bottom:8px;">Artikel Terkait</h4><div class="card-actions">${related
+                      .map((r) => `<button type="button" class="chip" data-article-detail="${r.id}">${escapeHTML(r.title)}</button>`)
+                      .join('')}</div></div>`
+                  : ''
+              }
+            `);
+          }
+        }
+
+        const closeModalId = e.target.closest('[data-close-modal]')?.dataset.closeModal;
+        if (closeModalId) {
+          document.getElementById(closeModalId)?.classList.add('hidden');
+        }
+      });
+
+      // Authentication (Login, Register, Forgot Password, Role Access)
+      const authModal = document.getElementById('authModal');
+      const authFeedback = document.getElementById('authFeedback');
+
+      function setAuthTab(mode) {
+        document.querySelectorAll('#authModal .tab-btn').forEach((b) => {
+          b.classList.toggle('active', b.dataset.authMode === mode);
+        });
+        document.getElementById('loginForm').classList.toggle('hidden', mode !== 'login');
+        document.getElementById('registerForm').classList.toggle('hidden', mode !== 'register');
+        document.getElementById('forgotForm').classList.toggle('hidden', mode !== 'forgot');
+        authFeedback.textContent = '';
+      }
+
+      document.querySelectorAll('[data-open-modal="authModal"]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          setAuthTab(btn.dataset.authTab || 'login');
+          authModal.classList.remove('hidden');
+        });
+      });
+
+      document.querySelectorAll('#authModal .tab-btn').forEach((btn) => {
+        btn.addEventListener('click', () => setAuthTab(btn.dataset.authMode));
+      });
+
+      function syncAuthUI() {
+        const loggedIn = Boolean(state.currentUser);
+        document.getElementById('authGuestActions').classList.toggle('hidden', loggedIn);
+        document.getElementById('authUserActions').classList.toggle('hidden', !loggedIn);
+      }
+
+      document.getElementById('loginForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+        const pass = document.getElementById('loginPass').value.trim();
+        if (!email.includes('@') || !pass) {
+          authFeedback.textContent = 'Masukkan email dan password yang valid.';
+          return;
+        }
+        const existing = state.users.find((u) => u.email.toLowerCase() === email);
+        const isAdmin = email === 'admin@ren.id' || existing?.role === 'admin';
+        state.currentUser = existing || {
+          id: `u_${Date.now()}`,
+          name: isAdmin ? 'Admin Ren Marketing' : email.split('@')[0],
+          email,
+          company: isAdmin ? 'Ren Marketing HQ' : 'Mitra Klien',
+          role: isAdmin ? 'admin' : 'client'
+        };
+        if (!existing) state.users.push(state.currentUser);
+        saveState();
+        syncAuthUI();
+        authModal.classList.add('hidden');
+        renderDashboard();
+        document.getElementById('dashboardModal').classList.remove('hidden');
+      });
+
+      document.getElementById('registerForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('regName').value.trim();
+        const company = document.getElementById('regCompany').value.trim();
+        const email = document.getElementById('regEmail').value.trim().toLowerCase();
+        const pass = document.getElementById('regPass').value;
+        if (!name || !company || !email.includes('@') || pass.length < 6) {
+          authFeedback.textContent = 'Lengkapi data registrasi (password minimal 6 karakter).';
+          return;
+        }
+        const newUser = { id: `u_${Date.now()}`, name, company, email, role: 'client' };
+        state.users.push(newUser);
+        state.currentUser = newUser;
+        saveState();
+        syncAuthUI();
+        authModal.classList.add('hidden');
+        renderDashboard();
+        document.getElementById('dashboardModal').classList.remove('hidden');
+      });
+
+      document.getElementById('forgotForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('forgotEmail').value.trim();
+        if (!email.includes('@')) {
+          authFeedback.textContent = 'Masukkan email terdaftar.';
+          return;
+        }
+        authFeedback.textContent = `Instruksi reset password telah dikirim ke ${email}.`;
+      });
+
+      document.getElementById('logoutBtn').addEventListener('click', () => {
+        state.currentUser = null;
+        saveState();
+        syncAuthUI();
+        document.getElementById('dashboardModal').classList.add('hidden');
+      });
+
+      document.getElementById('openDashboardBtn').addEventListener('click', () => {
+        if (!state.currentUser) {
+          setAuthTab('login');
+          authModal.classList.remove('hidden');
+          return;
+        }
+        renderDashboard();
+        document.getElementById('dashboardModal').classList.remove('hidden');
+      });
+
+      // ========================================================================
+      // PROTECTED DASHBOARDS (CUSTOMER & ADMIN WITH FULL CRUD)
+      // ========================================================================
+      function renderDashboard() {
+        const dashContainer = document.getElementById('dashboardContent');
+        if (!state.currentUser) {
+          dashContainer.innerHTML = '<p>Akses ditolak. Silakan login terlebih dahulu.</p>';
+          return;
+        }
+
+        if (state.currentUser.role === 'admin') {
+          renderAdminDashboard(dashContainer);
+        } else {
+          renderCustomerDashboard(dashContainer);
+        }
+      }
+
+      function renderCustomerDashboard(container) {
+        const myOrders = state.orders.filter((o) => o.clientEmail === state.currentUser.email);
+        const ordersToShow = myOrders.length ? myOrders : state.orders;
+        const latest = ordersToShow[0];
+        const myConsults = state.consultations.filter((c) => c.email === state.currentUser.email);
+
+        container.innerHTML = `
+          <span class="eyebrow">Dashboard Pelanggan</span>
+          <h3>Halo, ${escapeHTML(state.currentUser.name)}</h3>
+          <p class="small-text muted">${escapeHTML(state.currentUser.email)} • ${escapeHTML(state.currentUser.company)}</p>
+
+          <div class="dash-grid">
+            <div class="dash-box">
+              <small>Layanan / Paket Aktif</small>
+              <strong>${latest ? escapeHTML(latest.item) : 'Belum ada paket'}</strong>
+            </div>
+            <div class="dash-box">
+              <small>Status & Progress Proyek</small>
+              <strong>${latest ? `${escapeHTML(latest.projectStatus)} (${latest.progress}%)` : '-'}</strong>
+              <div class="progress-bar"><div class="progress-fill" style="width:${latest ? latest.progress : 0}%"></div></div>
+            </div>
+            <div class="dash-box">
+              <small>Invoice Terakhir</small>
+              <strong>${latest ? `${escapeHTML(latest.id)} (${escapeHTML(latest.status)})` : '-'}</strong>
+            </div>
+          </div>
+
+          <h4 style="margin:14px 0 8px;">Riwayat Transaksi & Invoice Pembayaran</h4>
+          ${ordersToShow
+            .map(
+              (o) => `
+              <div class="crud-row">
+                <div>
+                  <strong>${escapeHTML(o.id)}</strong> — ${escapeHTML(o.item)}
+                  <div class="small-text muted">Metode: ${escapeHTML(o.method || 'Transfer Bank')}</div>
+                </div>
+                <div>
+                  <span>${formatIDR(o.amount)}</span> •
+                  <strong style="color:var(--pastel-green);">${escapeHTML(o.status)}</strong>
+                </div>
+              </div>`
+            )
+            .join('')}
+
+          <h4 style="margin:16px 0 8px;">Jadwal Konsultasi Anda</h4>
+          ${
+            myConsults.length
+              ? myConsults.map((c) => `<div class="crud-row"><span>${escapeHTML(c.date)} • ${escapeHTML(c.time)}</span><span class="small-text muted">${escapeHTML(c.topic)}</span></div>`).join('')
+              : '<p class="small-text muted">Belum ada jadwal konsultasi pribadi. Gunakan form Konsultasi Gratis di halaman utama.</p>'
+          }
+
+          <h4 style="margin:16px 0 8px;">Chat dengan Admin</h4>
+          <form id="clientChatForm" class="form-row">
+            <input type="text" id="clientChatMsg" class="input" placeholder="Tulis pesan untuk tim admin..." required />
+            <button type="submit" class="btn btn-primary btn-sm">Kirim ke Admin</button>
+          </form>
+          <p id="clientChatStatus" class="form-feedback"></p>
+        `;
+
+        document.getElementById('clientChatForm')?.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const msg = document.getElementById('clientChatMsg').value.trim();
+          if (!msg) return;
+          pushNotification(`Chat Pelanggan (${state.currentUser.name}): ${msg}`);
+          e.target.reset();
+          document.getElementById('clientChatStatus').textContent = 'Pesan terkirim ke admin.';
+        });
+      }
+
+      function renderAdminDashboard(container) {
+        const totalClients = state.users.filter((u) => u.role === 'client').length;
+        const totalRevenue = state.orders.reduce((s, o) => s + Number(o.amount || 0), 0);
+        const pendingReviews = state.reviews.filter((r) => r.status === 'pending').length;
+        const maxSale = Math.max(...state.monthlySales.map((m) => m.amount), 1);
+
+        const tabs = [
+          { id: 'overview', label: 'Ringkasan & Grafik' },
+          { id: 'reviews', label: `Rating & Review (${pendingReviews} Pending)` },
+          { id: 'orders', label: 'Transaksi & Verifikasi' },
+          { id: 'services', label: 'Layanan' },
+          { id: 'pricing', label: 'Paket Harga' },
+          { id: 'portfolio', label: 'Portofolio' },
+          { id: 'blog', label: 'Blog' },
+          { id: 'users', label: 'Pelanggan & Admin' },
+          { id: 'messages', label: 'Pesan Masuk' }
+        ];
+
+        container.innerHTML = `
+          <span class="eyebrow">Dashboard Admin</span>
+          <h3>Manajemen Platform Ren Marketing</h3>
+
+          <div class="dash-grid">
+            <div class="dash-box"><small>Jumlah Pelanggan</small><strong>${totalClients}</strong></div>
+            <div class="dash-box"><small>Total Proyek / Order</small><strong>${state.orders.length}</strong></div>
+            <div class="dash-box"><small>Total Pendapatan</small><strong>${formatIDR(totalRevenue)}</strong></div>
+            <div class="dash-box"><small>Pesan Pelanggan</small><strong>${state.messages.length}</strong></div>
+          </div>
+
+          <div class="tab-bar">
+            ${tabs.map((t) => `<button type="button" class="tab-btn ${activeAdminTab === t.id ? 'active' : ''}" data-admin-tab="${t.id}">${t.label}</button>`).join('')}
+          </div>
+
+          <div id="adminTabBody"></div>
+        `;
+
+        container.querySelectorAll('[data-admin-tab]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            activeAdminTab = btn.dataset.adminTab;
+            renderAdminDashboard(container);
+          });
+        });
+
+        const body = document.getElementById('adminTabBody');
+
+        if (activeAdminTab === 'overview') {
+          body.innerHTML = `
+            <h4>Grafik Penjualan Bulanan</h4>
+            <div class="chart-bars">
+              ${state.monthlySales
+                .map((m) => {
+                  const pct = Math.round((m.amount / maxSale) * 100);
+                  return `
+                    <div class="chart-col">
+                      <small class="small-text" style="color:var(--pastel-green);">${Math.round(m.amount / 1000000)}jt</small>
+                      <div class="chart-bar-fill" style="height:${pct}%;"></div>
+                      <small class="muted">${m.month}</small>
+                    </div>`;
+                })
+                .join('')}
+            </div>
+            <h4>Jadwal Konsultasi Terbaru</h4>
+            ${state.consultations
+              .map((c) => `<div class="crud-row"><span><strong>${escapeHTML(c.name)}</strong> (${escapeHTML(c.email)}) — ${escapeHTML(c.date)} ${escapeHTML(c.time)}</span><span class="small-text muted">${escapeHTML(c.topic)}</span></div>`)
+              .join('')}
+          `;
+        } else if (activeAdminTab === 'reviews') {
+          body.innerHTML = `
+            <h4>Moderasi Rating & Review Pelanggan</h4>
+            <p class="small-text muted" style="margin-bottom:10px;">Setujui ulasan agar tampil di halaman publik.</p>
+            ${state.reviews
+              .map(
+                (r) => `
+                <div class="crud-row">
+                  <div>
+                    <strong>${escapeHTML(r.name)}</strong> (${escapeHTML(r.company)}) — ${r.rating}★
+                    <span class="chip" style="margin-left:8px;">${escapeHTML(r.status)}</span>
+                    <p class="small-text">${escapeHTML(r.comment)}</p>
+                  </div>
+                  <div class="card-actions">
+                    ${r.status !== 'approved' ? `<button type="button" class="btn btn-primary btn-xs" data-approve-rev="${r.id}">Setujui</button>` : ''}
+                    <button type="button" class="btn btn-danger btn-xs" data-del-rev="${r.id}">Hapus</button>
+                  </div>
+                </div>`
+              )
+              .join('')}
+          `;
+        } else if (activeAdminTab === 'orders') {
+          body.innerHTML = `
+            <h4>Manajemen Transaksi, Pembayaran & Progress Proyek</h4>
+            ${state.orders
+              .map(
+                (o) => `
+                <div class="crud-row">
+                  <div>
+                    <strong>${escapeHTML(o.id)}</strong> — ${escapeHTML(o.item)} (${formatIDR(o.amount)})
+                    <div class="small-text muted">Klien: ${escapeHTML(o.clientEmail)} • Pembayaran: ${escapeHTML(o.status)} • Proyek: ${escapeHTML(o.projectStatus)} (${o.progress}%)</div>
+                  </div>
+                  <div class="card-actions">
+                    <button type="button" class="btn btn-primary btn-xs" data-verify-order="${o.id}">Verifikasi Lunas</button>
+                    <button type="button" class="btn btn-outline btn-xs" data-progress-order="${o.id}">+25% Progress</button>
+                  </div>
+                </div>`
+              )
+              .join('')}
+          `;
+        } else if (activeAdminTab === 'services') {
+          body.innerHTML = `
+            <h4>Tambah Layanan Baru</h4>
+            <form id="adminAddSvcForm" class="form-row" style="margin:10px 0 16px;">
+              <input type="text" id="newSvcName" class="input" placeholder="Nama layanan" required />
+              <input type="number" id="newSvcPrice" class="input" placeholder="Harga (IDR)" required />
+              <select id="newSvcCat" class="input">
+                <option value="Search & Ads">Search & Ads</option>
+                <option value="Social & Content">Social & Content</option>
+                <option value="Web & Brand">Web & Brand</option>
+              </select>
+              <button type="submit" class="btn btn-primary btn-sm">Tambah Layanan</button>
+            </form>
+            ${state.services
+              .map(
+                (s) => `
+                <div class="crud-row">
+                  <span><strong>${escapeHTML(s.name)}</strong> (${escapeHTML(s.category)}) — ${formatIDR(s.price)}</span>
+                  <button type="button" class="btn btn-danger btn-xs" data-del-svc="${s.id}">Hapus</button>
+                </div>`
+              )
+              .join('')}
+          `;
+        } else if (activeAdminTab === 'pricing') {
+          body.innerHTML = `
+            <h4>Manajemen Paket Harga</h4>
+            ${state.pricing
+              .map(
+                (p) => `
+                <div class="crud-row">
+                  <span><strong>${escapeHTML(p.name)}</strong> — ${escapeHTML(p.price)}</span>
+                  <button type="button" class="btn btn-outline btn-xs" data-edit-pkg="${p.id}">Ubah Harga (+Rp 1jt)</button>
+                </div>`
+              )
+              .join('')}
+          `;
+        } else if (activeAdminTab === 'portfolio') {
+          body.innerHTML = `
+            <h4>Tambah Portofolio Proyek</h4>
+            <form id="adminAddPortForm" class="form-row" style="margin:10px 0 16px;">
+              <input type="text" id="newPortClient" class="input" placeholder="Nama klien" required />
+              <input type="text" id="newPortTitle" class="input" placeholder="Judul proyek" required />
+              <input type="text" id="newPortGrowth" class="input" placeholder="Hasil utama (mis. +120% Sales)" required />
+              <button type="submit" class="btn btn-primary btn-sm">Tambah Portofolio</button>
+            </form>
+            ${state.portfolio
+              .map(
+                (p) => `
+                <div class="crud-row">
+                  <span><strong>${escapeHTML(p.client)}</strong> — ${escapeHTML(p.title)} (${escapeHTML(p.growth)})</span>
+                  <button type="button" class="btn btn-danger btn-xs" data-del-port="${p.id}">Hapus</button>
+                </div>`
+              )
+              .join('')}
+          `;
+        } else if (activeAdminTab === 'blog') {
+          body.innerHTML = `
+            <h4>Tambah Artikel Blog</h4>
+            <form id="adminAddBlogForm" class="form-row" style="margin:10px 0 16px;">
+              <input type="text" id="newBlogTitle" class="input" placeholder="Judul artikel" required />
+              <select id="newBlogCat" class="input">
+                <option value="SEO">SEO</option>
+                <option value="Google Ads">Google Ads</option>
+                <option value="Social Media">Social Media</option>
+                <option value="Branding">Branding</option>
+              </select>
+              <input type="text" id="newBlogSummary" class="input" placeholder="Ringkasan singkat" required />
+              <button type="submit" class="btn btn-primary btn-sm">Publikasikan Artikel</button>
+            </form>
+            ${state.articles
+              .map(
+                (a) => `
+                <div class="crud-row">
+                  <span><strong>[${escapeHTML(a.category)}]</strong> ${escapeHTML(a.title)}</span>
+                  <button type="button" class="btn btn-danger btn-xs" data-del-art="${a.id}">Hapus</button>
+                </div>`
+              )
+              .join('')}
+          `;
+        } else if (activeAdminTab === 'users') {
+          body.innerHTML = `
+            <h4>Manajemen Akun Pelanggan & Admin</h4>
+            ${state.users
+              .map(
+                (u) => `
+                <div class="crud-row">
+                  <span><strong>${escapeHTML(u.name)}</strong> (${escapeHTML(u.email)}) — Role: <strong style="color:var(--pastel-green);">${escapeHTML(u.role)}</strong></span>
+                  <button type="button" class="btn btn-outline btn-xs" data-toggle-role="${u.id}">Ubah Role</button>
+                </div>`
+              )
+              .join('')}
+          `;
+        } else if (activeAdminTab === 'messages') {
+          body.innerHTML = `
+            <h4>Pesan Kontak Pelanggan</h4>
+            ${state.messages
+              .map(
+                (m) => `
+                <div class="crud-row">
+                  <div>
+                    <strong>${escapeHTML(m.name)}</strong> (${escapeHTML(m.company)}) • ${escapeHTML(m.service)} • ${escapeHTML(m.budget)}
+                    <p class="small-text">${escapeHTML(m.message)}</p>
+                  </div>
+                  <button type="button" class="btn btn-danger btn-xs" data-del-msg="${m.id}">Hapus</button>
+                </div>`
+              )
+              .join('')}
+          `;
+        }
+
+        // Bind Admin Actions
+        body.querySelectorAll('[data-approve-rev]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const target = state.reviews.find((r) => r.id === btn.dataset.approveRev);
+            if (target) {
+              target.status = 'approved';
+              saveState();
+              renderReviews();
+              renderAdminDashboard(container);
+            }
+          });
+        });
+
+        body.querySelectorAll('[data-del-rev]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            state.reviews = state.reviews.filter((r) => r.id !== btn.dataset.delRev);
+            saveState();
+            renderReviews();
+            renderAdminDashboard(container);
+          });
+        });
+
+        body.querySelectorAll('[data-verify-order]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const ord = state.orders.find((o) => o.id === btn.dataset.verifyOrder);
+            if (ord) {
+              ord.status = 'Lunas';
+              ord.projectStatus = 'Dalam Pengerjaan';
+              ord.progress = Math.max(ord.progress, 40);
+              saveState();
+              renderAdminDashboard(container);
+            }
+          });
+        });
+
+        body.querySelectorAll('[data-progress-order]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const ord = state.orders.find((o) => o.id === btn.dataset.progressOrder);
+            if (ord) {
+              ord.progress = Math.min(100, ord.progress + 25);
+              if (ord.progress === 100) ord.projectStatus = 'Selesai';
+              saveState();
+              renderAdminDashboard(container);
+            }
+          });
+        });
+
+        document.getElementById('adminAddSvcForm')?.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('newSvcName').value.trim();
+          const price = Number(document.getElementById('newSvcPrice').value);
+          const category = document.getElementById('newSvcCat').value;
+          if (!name || !price) return;
+          state.services.push({
+            id: `svc_${Date.now()}`,
+            code: name.slice(0, 4).toUpperCase(),
+            name,
+            category,
+            price,
+            desc: 'Layanan pemasaran digital terkelola oleh tim Ren Marketing.',
+            benefit: 'Meningkatkan performa kampanye & konversi bisnis.',
+            process: 'Audit -> Strategi -> Eksekusi -> Laporan berkala.',
+            eta: '2–4 minggu'
+          });
+          saveState();
+          renderServices();
+          renderAdminDashboard(container);
+        });
+
+        body.querySelectorAll('[data-del-svc]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            state.services = state.services.filter((s) => s.id !== btn.dataset.delSvc);
+            saveState();
+            renderServices();
+            renderAdminDashboard(container);
+          });
+        });
+
+        body.querySelectorAll('[data-edit-pkg]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const pkg = state.pricing.find((p) => p.id === btn.dataset.editPkg);
+            if (pkg) {
+              pkg.priceNumeric += 1000000;
+              pkg.price = `${formatIDR(pkg.priceNumeric)} / bln`;
+              saveState();
+              renderPricing();
+              renderAdminDashboard(container);
+            }
+          });
+        });
+
+        document.getElementById('adminAddPortForm')?.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const client = document.getElementById('newPortClient').value.trim();
+          const title = document.getElementById('newPortTitle').value.trim();
+          const growth = document.getElementById('newPortGrowth').value.trim();
+          if (!client || !title || !growth) return;
+          state.portfolio.unshift({
+            id: `p_${Date.now()}`,
+            client,
+            category: 'SEO & SEM',
+            title,
+            desc: 'Optimasi kampanye digital terpadu untuk peningkatan akuisisi pelanggan.',
+            strategy: 'Riset audiens, optimasi funnel, dan pengukuran konversi end-to-end.',
+            result: `Pencapaian utama: ${growth}.`,
+            growth
+          });
+          saveState();
+          renderPortfolio();
+          renderAdminDashboard(container);
+        });
+
+        body.querySelectorAll('[data-del-port]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            state.portfolio = state.portfolio.filter((p) => p.id !== btn.dataset.delPort);
+            saveState();
+            renderPortfolio();
+            renderAdminDashboard(container);
+          });
+        });
+
+        document.getElementById('adminAddBlogForm')?.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const title = document.getElementById('newBlogTitle').value.trim();
+          const category = document.getElementById('newBlogCat').value;
+          const summary = document.getElementById('newBlogSummary').value.trim();
+          if (!title || !summary) return;
+          state.articles.unshift({
+            id: `a_${Date.now()}`,
+            category,
+            title,
+            author: state.currentUser.name,
+            date: new Date().toLocaleDateString('id-ID', { day: '2-digit', month: 'short', year: 'numeric' }),
+            summary,
+            content: `${summary} Strategi ini membantu tim pemasaran mengoptimalkan anggaran dan meningkatkan kualitas prospek secara konsisten.`
+          });
+          saveState();
+          renderBlog();
+          renderAdminDashboard(container);
+        });
+
+        body.querySelectorAll('[data-del-art]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            state.articles = state.articles.filter((a) => a.id !== btn.dataset.delArt);
+            saveState();
+            renderBlog();
+            renderAdminDashboard(container);
+          });
+        });
+
+        body.querySelectorAll('[data-toggle-role]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const usr = state.users.find((u) => u.id === btn.dataset.toggleRole);
+            if (usr) {
+              usr.role = usr.role === 'admin' ? 'client' : 'admin';
+              saveState();
+              renderAdminDashboard(container);
+            }
+          });
+        });
+
+        body.querySelectorAll('[data-del-msg]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            state.messages = state.messages.filter((m) => m.id !== btn.dataset.delMsg);
+            saveState();
+            renderAdminDashboard(container);
+          });
+        });
+      }
+
+      // Initialize App
+      syncAuthUI();
+      updateCartBadge();
+      renderNotifications();
+      renderTeam();
+      renderServices();
+      renderPortfolio();
+      renderPricing();
+      renderReviews();
+      renderBlog();
+      renderFAQ();
+    })();
+  </script>
 </body>
 </html>
